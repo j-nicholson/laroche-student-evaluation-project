@@ -1,0 +1,49 @@
+body {
+    font-family: sans-serif;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.wrapper {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;  
+  
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+div.card-pad {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    padding: 15px;
+}
+
+.field-style {
+    box-shadow: 0 0 5px #B0CFE0;
+    border: 1px solid #B0CFE0;
+}
+
+.field-split {
+    width: 50%;
+}
+
+.field-full {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
