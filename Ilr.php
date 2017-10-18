@@ -53,7 +53,7 @@
                         document.getElementById('studentSemester').value = json.Student_Semester;
                         document.getElementById('lastUpdated').innerHTML = '<p>Last Updated: ' + json.Student_Date + '</p>';
                         //Errors with image retreival.
-                        document.getElementById('prof-img').innerHTML = '<img src="data:image/jpeg;base64,'.base64_encode(json.Student_Photo).'"/>';
+                        //document.getElementById('prof-img').innerHTML = '<img src="data:image/jpeg;base64,'.base64_encode(json.Student_Photo).'"/>';
                     }
                 };
                 xmlhttp.open("GET", url + "?q=" + id, true);
