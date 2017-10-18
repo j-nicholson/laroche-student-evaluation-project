@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 19, 2017 at 12:26 AM
+-- Generation Time: Oct 19, 2017 at 12:49 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `Cap_Dev_Run`
 --
+CREATE DATABASE IF NOT EXISTS `Cap_Dev_Run` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `Cap_Dev_Run`;
 
 -- --------------------------------------------------------
 
