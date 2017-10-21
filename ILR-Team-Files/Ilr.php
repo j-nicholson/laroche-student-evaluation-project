@@ -1,6 +1,7 @@
 <?php
     include('Student.php');
     include('DataHandler.php');
+    include('connection.php');
     $stu = new Student();
 ?>
 <!DOCTYPE html>
@@ -11,6 +12,19 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    
+    <!--<script>
+        let year = new Date();
+        let select = document.getElementById('year');
+        for(let i=year.getFullYear()-4;i < year.getFullYear(); i++){
+              console.log(i);
+              let opt = document.createElement('option');
+              opt.value = i;
+              opt.innerHTML =i;
+              select.appendChild(opt);
+        }
+
+    </script>-->
     
     <script type="text/javascript">
         function showfield(name) {
@@ -36,8 +50,10 @@
                 }
                 xmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {
-                        console.log(this.responseText);
                         var json = JSON.parse(this.responseText);
+                        var nonjson = this.responseText;
+                        console.log("This is not json parsed: " + nonjson);
+                        console.log("This IS json parsed: " + json);
                         
                         document.getElementById('studentName_1').value = json.Student_Name;
                         
@@ -52,8 +68,10 @@
                         document.getElementById('studentYear').value = json.Student_Year;
                         document.getElementById('studentSemester').value = json.Student_Semester;
                         document.getElementById('lastUpdated').innerHTML = '<p>Last Updated: ' + json.Student_Date + '</p>';
+                        
+                        
                         //Errors with image retreival.
-                        //document.getElementById('prof-img').innerHTML = '<img src="data:image/jpeg;base64,'.base64_encode(json.Student_Photo).'"/>';
+                        document.getElementById('prof-img').innerHTML = '<img src="data:image/jpeg;base64,' + json.Student_Photo + '" height="200" width="200">';
                     }
                 };
                 xmlhttp.open("GET", url + "?q=" + id, true);
@@ -69,7 +87,7 @@
                 f_reader.onload = function(e){
                     $('#profile-image')
                         .attr('src', e.target.result)
-                        .width(150)
+                        .width(200)
                         .height(200);
                 };
                 f_reader.readAsDataURL(input.files[0]);
@@ -105,7 +123,7 @@
                 
                 <p>
                     <label>ID: </label>
-                    <input id="studentId_1" class="studentId field-style" type="text" name="studentId_1" onchange="showStudent(this.value)" required>
+                    <input id="studentId_1" class="studentId field-style" type="text" name="studentId_1" onchange="showStudent(this.value)" maxlength="6" required>
                     
                     <label id="nameLabel" style="padding-left:5px;">Name: </label>
                     <input id="studentName_1" class="field-style field-split" type="text" name="studentName_1" required>
@@ -123,7 +141,7 @@
                     <div id="other-text1" style="padding-left:5px;"></div>
                 
                    <label style="padding-left:38px;padding-right:2px;">Year: </label>
-                    <select class="field-style" id="studentYear" name="year" value="">
+                    <select class="field-style" id="studentYear" name="year">
                         <option value="Freshman" name="Freshman">Freshman</option>
                         <option value="Sophomore" name="Sophomore">Sophomore</option>
                         <option value="Junior" name="Junior">Junior</option>
@@ -141,7 +159,9 @@
                 <p style="padding-top:10px;">
                     <input class="field-full field-style" type="submit" name="submit" value="Update Biographical Information">
                 </p>
-                
+            </form>
+            <form method="get" action="http://localhost/Capstone_Development/ILR-Team-Files/index-signIn.php?logout=1">
+                <button type="submit" class="logout" name="logout" value="logout">Logout</button>
             </form>
         </div>
     </div>
@@ -159,8 +179,8 @@
         
             if(is_uploaded_file($_FILES['image']['tmp_name'])) {
                 $sImage2 = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-                //$sImage = addslashes(fread(fopen($_FILES['image']['tmp_name'], "r"), filesize($_FILES['image']['tmp_name'])));
-                $stu->set_student_photo($sImage2);
+                $stu->set_student_photo(base64_encode($sImage2));
+                //echo $stu->get_student_photo();
             }
             
             switch($_POST['major']) {

@@ -21,10 +21,10 @@
         }
         
         public function set_student_year($year) {
-            if(stripos($year, 'Freshman') !== false || stripos($year, 'Sophomore') !== false || stripos($year, 'Junior') !== false || stripos($year, 'Senior') !== false)
+            /*if(stripos($year, 'Freshman') !== false || stripos($year, 'Sophomore') !== false || stripos($year, 'Junior') !== false || stripos($year, 'Senior') !== false)*/
                 $this->student_Year = $year;
-            else
-                $this->student_Year = null;
+            /*else
+                $this->student_Year = null;*/
         }
         
         public function set_student_semester($semester) {

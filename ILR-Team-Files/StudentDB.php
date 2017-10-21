@@ -10,9 +10,9 @@
 
     $query = "SELECT * FROM Student WHERE Student_ID = '" . $q . "'";
     $result = mysqli_query($conn, $query);
-        
-     while($row = mysqli_fetch_assoc($result)) {
-         echo json_encode($row);
+
+    while($row = mysqli_fetch_assoc($result)) {
+        echo json_encode($row); 
     }
     mysqli_close($conn);
 ?>
