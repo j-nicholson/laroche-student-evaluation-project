@@ -1,7 +1,7 @@
 
 function showStudent(id) {
     var url = "StudentDB.php";
-    if(id == "") {
+    if(id === "") {
         document.getElementById('studentName_1').innerHTML = '';
         return;
     }
@@ -29,7 +29,7 @@ function showStudent(id) {
                     document.getElementById('studentMajor').value = studentJson.Student_Major;
                 }
               //student year is null on html page when it ets to this line
-              //  document.getElementById('year').value = studentJson.Student_Year;
+                document.getElementById('studentYear').value = studentJson.Student_Year;
                 document.getElementById('studentSemester').value = studentJson.Student_Semester;
                 document.getElementById('lastUpdated').innerHTML = '<p>Last Updated: ' + studentJson.Student_Date + '</p>';
 
@@ -39,16 +39,16 @@ function showStudent(id) {
 
 
                 //Errors with image retreival.
-                let image = document.getElementById("pictureShowsUpHere");
-                let base64Photo = studentJson.Student_Photo;
-                let prefix = "data:image/jpeg;base64,";
-                let concat = prefix + studentJson.Student_Photo;
-                image.src = concat;
+                let image = document.getElementById("prof-img");
+                let imgurl = studentJson.Student_Photo;
+                //let prefix = "data:image/jpeg;base64,";
+               // let concat = p studentJson.Student_Photo;
+                image.src = imgurl;
                 image.height ="200";
                 image.width ="200";
 
 
-              //  document.getElementById('prof-img').innerHTML = '<img src="data:image/jpeg;base64,' + studentJson.Student_Photo + '>';
+               // document.getElementById('prof-img').innerHTML = '<img src="data:image/jpeg;base64,' + studentJson.Student_Photo + '" height="200" width="200" >';
 
             }
         };

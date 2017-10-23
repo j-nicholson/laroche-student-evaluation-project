@@ -11,11 +11,11 @@
             $sec_student_year = mysqli_real_escape_string($conn, $student_year);
             $sec_student_semester = mysqli_real_escape_string($conn, $student_semester);
             
-            $query = "INSERT INTO Student (Student_ID, Student_Name, Student_Major, Student_Year, Student_Semester, Student_Photo, Student_Date) VALUES ('$sec_student_ID', '$sec_student_name', '$sec_student_major', '$sec_student_year', '$sec_student_semester', '$student_photo', '$student_date')";
+            $query = "INSERT INTO Student (Student_ID, Student_Name, Student_Major, Student_Year, Student_Semester,  Student_Date, Student_Photo) VALUES ('$sec_student_ID', '$sec_student_name', '$sec_student_major', '$sec_student_year', '$sec_student_semester', '$student_date', '$student_photo')";
             
             $check = "SELECT * FROM Student WHERE Student_ID = '$sec_student_ID'";
             
-            $update = "UPDATE Student SET Student_Name = '$sec_student_name', Student_Major = '$sec_student_major', Student_Year = '$sec_student_year', Student_Semester = '$sec_student_semester', Student_Photo = '$student_photo', Student_Date = '$student_date' WHERE Student_ID = '$sec_student_ID'";
+            $update = "UPDATE Student SET Student_Name = '$sec_student_name', Student_Major = '$sec_student_major', Student_Year = '$sec_student_year', Student_Semester = '$sec_student_semester', Student_Date = '$student_date', Student_Photo = '$student_photo', WHERE Student_ID = '$sec_student_ID'";
             
             $result_check = mysqli_query($conn, $check);
             if(!$result_check) {

@@ -12,88 +12,9 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    
-    <!--<script>
-        let year = new Date();
-        let select = document.getElementById('year');
-        for(let i=year.getFullYear()-4;i < year.getFullYear(); i++){
-              console.log(i);
-              let opt = document.createElement('option');
-              opt.value = i;
-              opt.innerHTML =i;
-              select.appendChild(opt);
-        }
-
-    </script>-->
-    
-    <script type="text/javascript">
-        function showfield(name) {
-            if(name == 'OtherOp')
-                document.getElementById('other-text1').innerHTML='<input id="Other" class="field-style" type="text" placeholder="Other" name="Other" required>';
-            else
-                document.getElementById('other-text1').innerHTML='';
-        }
-    </script>
-    <script type="text/javascript">
-        function showStudent(id) {
-            var url = "StudentDB.php";
-            if(id == "") {
-                document.getElementById('studentName_1').innerHTML = '';
-                return;
-            }
-            else {
-                if(window.XMLHttpRequest) {
-                    xmlhttp = new XMLHttpRequest();
-                }
-                else {
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function() {
-                    if(this.readyState == 4 && this.status == 200) {
-                        var json = JSON.parse(this.responseText);
-                        var nonjson = this.responseText;
-                        console.log("This is not json parsed: " + nonjson);
-                        console.log("This IS json parsed: " + json);
-                        
-                        document.getElementById('studentName_1').value = json.Student_Name;
-                        
-                        if(json.Student_Major !== "Chemistry" && json.Student_Major !== "Biochemistry"){
-                            document.getElementById('studentMajor').value = "OtherOp";
-                            document.getElementById('other-text1').innerHTML = '<input id=Other class=field-style type=text placeholder=Other name=Other value=' + json.Student_Major + ' required>';
-                        }
-                        else{
-                            document.getElementById('studentMajor').value = json.Student_Major;
-                        }
-                        
-                        document.getElementById('studentYear').value = json.Student_Year;
-                        document.getElementById('studentSemester').value = json.Student_Semester;
-                        document.getElementById('lastUpdated').innerHTML = '<p>Last Updated: ' + json.Student_Date + '</p>';
-                        
-                        
-                        //Errors with image retreival.
-                        document.getElementById('prof-img').innerHTML = '<img src="data:image/jpeg;base64,' + json.Student_Photo + '" height="200" width="200">';
-                    }
-                };
-                xmlhttp.open("GET", url + "?q=" + id, true);
-                xmlhttp.send();
-            }
-        }
-    </script>
-    <script type="text/javascript">
-        function displayImage(input) {
-            if(input.files && input.files[0]) {
-                var f_reader = new FileReader();
-                
-                f_reader.onload = function(e){
-                    $('#profile-image')
-                        .attr('src', e.target.result)
-                        .width(200)
-                        .height(200);
-                };
-                f_reader.readAsDataURL(input.files[0]);
-            }
-        }
-    </script>
+    <script src="JS/displayImage.js"></script>
+    <script src="JS/showField.js"></script>
+    <script src="JS/showStudent.js"></script>
 </head>
     
 <body style="background-color: cornsilk;">
@@ -102,10 +23,7 @@
     <div class="card-pad">
         <h5><strong>Biographical Information</strong></h5>
         <h6 id="curr_date"></h6>
-        <script type="text/javascript">
-            var date = new Date();
-            document.getElementById('curr_date').innerHTML = '<strong>Date: </strong>' + date.toDateString();
-        </script>
+        <script src="JS/showDate.js"></script>
         <?php 
             $stu->set_student_date(date('Y-m-d H:i:s'));
         ?>
@@ -115,7 +33,7 @@
                 <p>
                     <img id="profile-image" src="#" alt="">
                 </p>
-                <div id="prof-img"></div>
+                <img id="prof-img" />
                 <p>
                     <label>Upload Image: </label>
                     <input type="file" id="picture"  name="image" accept="image/*" onchange="displayImage(this)" value="">
@@ -140,13 +58,11 @@
                     </select>
                     <div id="other-text1" style="padding-left:5px;"></div>
                 
-                   <label style="padding-left:38px;padding-right:2px;">Year: </label>
+                    <label style="padding-left:38px;padding-right:2px;">Year: </label>
                     <select class="field-style" id="studentYear" name="year">
-                        <option value="Freshman" name="Freshman">Freshman</option>
-                        <option value="Sophomore" name="Sophomore">Sophomore</option>
-                        <option value="Junior" name="Junior">Junior</option>
-                        <option value="Senior" name="Senior">Senior</option>
-                    </select> 
+                    </select>
+                    <script src="JS/setPrevYearsOnStudentYear.js"></script>
+                    
                 
                     <label style="padding-left:38px;padding-right:2px">Semester: </label>
                     <select class="field-style" id="studentSemester" name="semester" value="">
@@ -178,9 +94,18 @@
             $stu->set_student_name($sec_name);
         
             if(is_uploaded_file($_FILES['image']['tmp_name'])) {
-                $sImage2 = addslashes(file_get_contents($_FILES['image']['tmp_name']));
-                $stu->set_student_photo(base64_encode($sImage2));
-                //echo $stu->get_student_photo();
+                $basefolder = "studentPhotos/";
+                $sImage2 = $_FILES['image']['name'];
+                $directory = $basefolder . basename($sImage2);
+                $imageFileType = pathinfo($directory,PATHINFO_EXTENSION);
+                if (move_uploaded_file($_FILES["image"]["tmp_name"], $directory)) {
+                    $stu->set_student_photo($directory);
+                    echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
+                } else {
+                    echo "Sorry, there was an error uploading your file.";
+                }
+                
+                
             }
             
             switch($_POST['major']) {
@@ -198,22 +123,7 @@
                     break;
             }
             
-            switch($_POST['year']) {
-                case $_POST['year'] == "Freshman":
-                    $stu->set_student_year("Freshman");
-                    break;
-                case $_POST['year'] == "Sophomore";
-                    $stu->set_student_year("Sophomore");
-                    break;
-                case $_POST['year'] == "Junior";
-                    $stu->set_student_year("Junior");
-                    break;
-                case $_POST['year'] == "Senior";
-                    $stu->set_student_year("Senior");
-                    break;
-                default:
-                    break;
-            }
+            $stu->set_student_year($_POST['year']);
             
             switch($_POST['semester']) {
                 case $_POST['semester'] == "Fall":
