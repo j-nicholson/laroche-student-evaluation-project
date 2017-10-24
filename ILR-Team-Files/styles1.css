@@ -77,3 +77,66 @@ img {
 h5 {
     text-align: center;
 }
+
+
+
+
+
+
+
+
+
+
+p {
+    font-family:"Arial Black";
+    line-height:120%;
+}
+html {
+height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat:no-repeat;
+    background: -webkit-linear-gradient( to bottom, white, gray);
+    background: -moz-linear-gradient( to bottom, white, gray);
+    background: -ms-linear-gradient( to bottom, white, gray);
+    background: -o-linear-gradient( to bottom, white, gray);
+    background: linear-gradient( to bottom, white, gray);
+}
+h1 {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
+h3 {
+    text-align: center;
+}
+h4 {
+    text-align: center;
+}
+img {
+    background-color: black;
+    display: block;
+    margin: 0 auto;
+}
+.button {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+    color: black;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 150px;
+}
+label#SLOs ~ span {
+  display: inline-block;
+  width: 180px;
+  vertical-align: middle;
+}
