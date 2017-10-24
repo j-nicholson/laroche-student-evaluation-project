@@ -100,7 +100,6 @@
                 $imageFileType = pathinfo($directory,PATHINFO_EXTENSION);
                 if (move_uploaded_file($_FILES["image"]["tmp_name"], $directory)) {
                     $stu->set_student_photo($directory);
-                    echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
                 } else {
                     echo "Sorry, there was an error uploading your file.";
                 }  
