@@ -15,7 +15,7 @@
             
             $check = "SELECT * FROM Student WHERE Student_ID = '$sec_student_ID'";
             
-            $update = "UPDATE Student SET Student_Name = '$sec_student_name', Student_Major = '$sec_student_major', Student_Year = '$sec_student_year', Student_Semester = '$sec_student_semester', Student_Date = '$student_date', Student_Photo = '$student_photo', WHERE Student_ID = '$sec_student_ID'";
+            $update = "UPDATE Student SET Student_Name = '$sec_student_name', Student_Major = '$sec_student_major', Student_Year = '$sec_student_year', Student_Semester = '$sec_student_semester', Student_Date = '$student_date', Student_Photo = '$student_photo' WHERE Student_ID = '$sec_student_ID'";
             
             $result_check = mysqli_query($conn, $check);
             if(!$result_check) {
