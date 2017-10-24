@@ -24,6 +24,7 @@
       #homePageContainer {
               
             margin-top: 150px;
+            color: ghostwhite;
           
       }
           
@@ -36,7 +37,7 @@
           
       html { 
           
-          background: url(Chemicals.jpg) no-repeat center center fixed; 
+          background: url(https://scontent-iad3-1.cdninstagram.com/t51.2885-15/e35/19535188_333925340372792_6013365887015321600_n.jpg) no-repeat center center fixed; 
           -webkit-background-size: cover;
           -moz-background-size: cover;
           -o-background-size: cover;

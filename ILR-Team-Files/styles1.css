@@ -1,0 +1,79 @@
+body {
+    margin:0;
+    padding:0;
+    background-color: bisque;
+}
+
+
+.topnav {
+  overflow: hidden;
+  background: linear-gradient(to top left, black, brown);
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+    background-color:black;
+    color: white;
+}
+
+.topnav a.logOut {
+    color: white;
+}
+
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+header {
+    padding: 0.1em;
+    color: white;
+    background: linear-gradient(to top left, black, brown);
+    clear: left;
+    text-align: center;
+    text-shadow: 2px 2px 4px black;
+    opacity: 1;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    background-color: bisque;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#title{
+    text-align: center;
+    font-size: 170%;
+    color:black;
+}
+
+#form-div1{
+    text-align: center; 
+    border: 2px brown solid;
+    max-width: 530px;
+    padding: 15px;
+    margin: 10 auto;
+    border-radius: 0.3em;
+    
+   
+}
+
+h5 {
+    text-align: center;
+}
