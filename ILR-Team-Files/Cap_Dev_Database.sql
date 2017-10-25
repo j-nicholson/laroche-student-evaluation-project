@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 23, 2017 at 11:57 PM
+-- Generation Time: Oct 26, 2017 at 12:30 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -79,13 +79,40 @@ INSERT INTO `Course` (`CourseID`, `CourseTitle`, `InstructorID`, `CourseDescript
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Course_Assessment_Form_Section_1`
+--
+
+CREATE TABLE IF NOT EXISTS `Course_Assessment_Form_Section_1` (
+  `CAFS1ID` int(11) NOT NULL,
+  `NewSLOs` longblob NOT NULL,
+  `Upgrades` longblob NOT NULL,
+  `Enhancements` longblob NOT NULL,
+  `Modifications` longblob NOT NULL,
+  `Other` longblob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Course_Assessment_Form_Section_1`
+--
+
+INSERT INTO `Course_Assessment_Form_Section_1` (`CAFS1ID`, `NewSLOs`, `Upgrades`, `Enhancements`, `Modifications`, `Other`) VALUES
+(11111, 0x4e6f6e65, 0x4e6f6e65, 0x4e6f6e65, 0x4e6f6e65, 0x48656c6c6f),
+(0, '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `Course_SLOs`
 --
 
 CREATE TABLE IF NOT EXISTS `Course_SLOs` (
   `CourseSLOID` int(6) NOT NULL,
   `CourseID` varchar(10) NOT NULL,
-  `SLOID` int(2) NOT NULL,
+  `SLO1` varchar(255) DEFAULT NULL,
+  `SLO2` varchar(255) DEFAULT NULL,
+  `SLO3` varchar(255) DEFAULT NULL,
+  `SLO4` varchar(255) DEFAULT NULL,
+  `SLO5` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`CourseSLOID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -93,31 +120,9 @@ CREATE TABLE IF NOT EXISTS `Course_SLOs` (
 -- Dumping data for table `Course_SLOs`
 --
 
-INSERT INTO `Course_SLOs` (`CourseSLOID`, `CourseID`, `SLOID`) VALUES
-(0, 'CSCI4098', 4),
-(19, 'CSCI4098', 4),
-(40, 'CSCI4098', 4),
-(60, 'CSCI4098', 4),
-(13943, 'CSCI4098', 4),
-(120593, 'CSCI4098', 4),
-(315579, '', 4),
-(370463, 'course', 4),
-(370484, '', 4),
-(546732, '', 4),
-(567801, '', 4),
-(603905, '', 4),
-(630053, '', 4),
-(651932, '', 4),
-(652652, 'CSCI4098', 4),
-(662537, '', 4),
-(700113, 'course', 4),
-(708057, '', 4),
-(726532, '', 4),
-(750386, '', 4),
-(776045, 'MATH2050', 4),
-(781681, 'course', 4),
-(823494, '', 4),
-(931205, '', 4);
+INSERT INTO `Course_SLOs` (`CourseSLOID`, `CourseID`, `SLO1`, `SLO2`, `SLO3`, `SLO4`, `SLO5`) VALUES
+(387684, '', 'false', 'true', 'true', 'false', 'false'),
+(837367, '', 'true', 'true', 'false', 'false', 'false');
 
 -- --------------------------------------------------------
 
@@ -204,13 +209,16 @@ INSERT INTO `Student` (`Student_ID`, `Student_Name`, `Student_Major`, `Student_Y
 (333333, 'yummy', 'Chemistry', '2014', 'Fall', '2017-10-23 21:48:13', 'studentPhotos/download.jpeg'),
 (373827, 'Matt Simons', 'Biochemistry', 'Freshman', 'Fall', '2017-10-11 22:53:46', NULL),
 (443322, 'Sam Sunglasses', 'Biochemistry', 'Junior', 'Spring', '2017-10-21 20:31:31', NULL),
+(474747, 'Freddy Manson', 'Dance', '2016', 'Summer', '2017-10-24 16:20:15', ''),
 (525252, 'Nick Jonson', 'Chemistry', '2016', 'Fall', '2017-10-23 21:31:24', NULL),
 (555555, 'Nick Jonson', 'Chemistry', '2016', 'Fall', '2017-10-23 05:39:36', NULL),
 (626262, 'Gary Jones', 'Chemistry', '2014', 'Fall', '2017-10-23 21:37:31', ''),
 (666666, 'Nathan Man', 'Biochemistry', 'Senior', 'Spring', '2017-10-21 20:33:46', NULL),
-(747474, 'yummy3', 'Chemistry', '2014', 'Fall', '2017-10-23 21:59:44', 'studentPhotos/download.jpeg'),
+(747474, 'Gregory Smith', 'Chemistry', '2014', 'Fall', '2017-10-24 16:30:58', 'studentPhotos/13268503_1204199139590434_5383854862668333667_o.jpg'),
+(765432, 'Billy Poop', 'Biochemistry', '2014', 'Fall', '2017-10-24 20:38:12', 'studentPhotos/13268503_1204199139590434_5383854862668333667_o.jpg'),
 (767676, 'hey there', 'Chemistry', '2014', 'Fall', '2017-10-23 21:25:23', NULL),
 (787878, 'hey hey', 'Chemistry', '2014', 'Fall', '2017-10-23 21:29:15', NULL),
+(865432, 'Johnny Nicholson', 'Math', '2014', 'Fall', '0000-00-00 00:00:00', 'studentPhotos/13268503_1204199139590434_5383854862668333667_o.jpg'),
 (878787, 'hey hey', 'Chemistry', '2014', 'Fall', '2017-10-23 21:30:22', NULL),
 (888888, 'jan jan', 'Chemistry', '2014', 'Fall', '2017-10-23 18:34:25', NULL),
 (999999, 'Huckle Finn', 'Chemistry', '2017', 'Fall', '2017-10-23 05:43:19', NULL);
@@ -233,7 +241,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`) VALUES
-(1, 'johnfnicholson123@gmail.com', '921f1def9069b154fe0fd0a5424585ba');
+(1, 'johnfnicholson123@gmail.com', '921f1def9069b154fe0fd0a5424585ba'),
+(2, 'dadada@hello.com', 'dbfdedaa2354ca67413f9db0dcb018db');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
