@@ -138,11 +138,11 @@
           
     <head>
         
-        <title>ILR Form Sign in</title>
+        <title>Chemistry Department Student Learning System</title>
      
     </head>
       
-    <h1>ILR</h1>
+    <p><strong>Chemistry Department Student Learning System</strong></p>
           
           <p><strong>Welcome back</strong></p>
           

@@ -1,4 +1,4 @@
-  <?php
+<?php
 include ('connect.php');
 $sql = "SELECT * FROM Class WHERE Semester = 'SPR 2017'";
 $result = mysqli_query($conn, $sql);

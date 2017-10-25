@@ -23,9 +23,9 @@
              <a class="logOut" href="index-signIn.php?logout=1">Logout</a>
         </div> 
         <!-- LRC logo -->
-        <img src="larochelogo.png" alt="Logo" style="width:200px;height:80px;">
+        <img src="https://laroche.edu/img/logo.png" alt="Logo" style="width:300px;height:80px;">
         <header>
-                <h1>Chemistry Department</h1><br> 
+                <h1>Chemistry Department</h1>
                 <h2>Undergraduate Individual Learning Record</h2>
         </header>
         <h2 id="title">Biographical Information </h2> 

@@ -25,4 +25,4 @@ echo "<label id='SLOs'>Student Learning Outcomes (SLOs) addressed in this course
 }
 
 ?> 
-  
+

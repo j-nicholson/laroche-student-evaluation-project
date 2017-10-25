@@ -79,15 +79,7 @@ h5 {
 }
 
 
-
-
-
-
-
-
-
-
-p {
+.par {
     font-family:"Arial Black";
     line-height:120%;
 }
@@ -98,26 +90,25 @@ height: 100%;
     -o-background-size: cover;
     background-size: cover;
     background-repeat:no-repeat;
-    background: -webkit-linear-gradient( to bottom, white, gray);
+   /* background: -webkit-linear-gradient( to bottom, white, gray);
     background: -moz-linear-gradient( to bottom, white, gray);
     background: -ms-linear-gradient( to bottom, white, gray);
     background: -o-linear-gradient( to bottom, white, gray);
-    background: linear-gradient( to bottom, white, gray);
+    background: linear-gradient( to bottom, white, gray);*/
 }
-h1 {
+.head1 {
     text-align: center;
 }
-h2 {
+.head2 {
     text-align: center;
 }
-h3 {
+.head3 {
     text-align: center;
 }
-h4 {
+.head5 {
     text-align: center;
 }
-img {
-    background-color: black;
+.displayimg {
     display: block;
     margin: 0 auto;
 }
