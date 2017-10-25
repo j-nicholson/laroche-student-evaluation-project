@@ -109,4 +109,35 @@ include ('courseselect.php');
 <input type="button" id="slobutton" value = "SLO submit" class='button' style= "color:black" onclick="sloSubmit()";/>
 </body> 
 </html>
+    
+<!--MY ADDED CODE-->
+
+
+<?php
+//include ('download.php');
+include ('CAFSec1.php');
+?>
+
+<br>
+<br><a href="download.php">Syllabus</a><br>
+
+
+    <form action="code.php" method="post">
+    <input type="hidden" name="submitted2" value="true" />
+    <fieldset>
+    <legend>Course Assessment Form Section 1 (Please be detailed):</legend>
+        <div><label>CAFS1ID: <input type = text name = "CAFS1ID" /></label></div><br>
+        <div><label;>New SLOs: <input type = text name = "NewSLOs" /></label></div><br>
+        <div><label>Upgrades: <input type = text name = "Upgrades" /></label></div><br>
+        <div><label>Enhancements: <input type = text name = "Enhancements" /></label></div><br>
+        <div><label>Modifications: <input type = text name = "Modifications" /></div></label><br>
+        <div><label>Other: <input type = text name = "Other" /></label></div><br>
+    </fieldset>
+    
+       <iframe name="votar" style="display:none;"></iframe>
+<form action="code.php" method="post" target="votar">
+    <input type="submit" value="Update" />
+    <input type="hidden" name="ad_id" value="2">            
+</form>
+  
 

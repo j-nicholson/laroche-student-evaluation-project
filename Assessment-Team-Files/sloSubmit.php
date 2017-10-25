@@ -13,7 +13,7 @@ $result = mysqli_query($conn, $query) or die("error: $query");
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 	$classID = $row['ClassID'];
 }
-$sqlinsert = "INSERT INTO Course_SLOs (CourseSLOID, ClassID, SLO1, SLO2, SLO3, SLO4, SLO5) VALUES ('$ID', '$classID', '$SLO1', '$SLO2', '$SLO3', '$SLO4', '$SLO5')";
+$sqlinsert = "INSERT INTO Course_SLOs (CourseSLOID, CourseID, SLO1, SLO2, SLO3, SLO4, SLO5) VALUES ('$ID', '$classID', '$SLO1', '$SLO2', '$SLO3', '$SLO4', '$SLO5')";
      
         if(!mysqli_query($conn,$sqlinsert)){
             die('error inserting');
