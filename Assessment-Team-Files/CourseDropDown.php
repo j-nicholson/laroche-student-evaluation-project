@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<link rel="stylesheet" src="../ILR-Team-Files/styles1.css" />
-
+<link rel="stylesheet" href="style.css" />
 <html>
 <title>CourseDropDown</title>
 <head>
