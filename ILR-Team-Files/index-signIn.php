@@ -1,4 +1,3 @@
-<!--//this file is the php file for entering a new student to the db-->
 <?php
 
     session_start();
@@ -127,23 +126,13 @@
 
 ?>
 
-
-
-
-
-
 <?php include("header.php"); ?>
       
       <div class="container" id="homePageContainer">
           
-    <head>
-        
-        <title>Chemistry Department Student Learning System</title>
-     
-    </head>
-      
-    <p><strong>Chemistry Department Student Learning System</strong></p>
+          <title>Chemistry Learning System</title>
           
+          <p><strong>Chemistry Department Student Learning System</strong></p>
           <p><strong>Welcome back</strong></p>
           
           <div id="error"><?php if ($error!="") {
@@ -153,7 +142,7 @@
 
 <form method="post" id = "signUpForm">
     
-    <p>Only teachers can sign up</p>
+    <p>Chemistry department</p>
     
     <fieldset class="form-group">
 
@@ -230,3 +219,5 @@
       </div>
 
 <?php include("footer.php"); ?>
+
+
