@@ -19,7 +19,7 @@
                 $basefolder = "Controller/Independent-Learning-Record-Controllers/Student-Photos/" . $student->get_student_name() . "/";
                 $studentImage = $_FILES['image']['name'];
                 if(!is_dir($basefolder)){
-                    if(mkdir("Controller/Independent-Learning-Record-Controllers/Student-Photos/" . $student->get_student_name() . "/")) {
+                    if(mkdir($basefolder)) {
                         $directory = $basefolder . basename($studentImage);
                         $imageFileType = pathinfo($directory, PATHINFO_EXTENSION);
                         if (move_uploaded_file($_FILES["image"]["tmp_name"], $directory)) {
