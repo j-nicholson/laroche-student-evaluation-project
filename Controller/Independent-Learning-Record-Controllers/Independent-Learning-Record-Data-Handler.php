@@ -10,7 +10,7 @@
             $sec_student_semester = mysqli_real_escape_string($connection, $student_semester);
             $sec_student_notes = mysqli_real_escape_string($connection, $student_notes);
             
-            $query = "INSERT INTO Student (Student_ID, Student_Name, Student_Major, Student_Year, Student_Semester,  Student_Date, Student_Photo, Student_Notes) VALUES ('$sec_student_ID', '$sec_student_name', '$sec_student_major', '$sec_student_year', '$sec_student_semester', '$student_date', '$student_photo', '$sec_student_notes')"; ///here
+            $query = "INSERT INTO Student (Student_ID, Student_Name, Student_Major, Student_Year, Student_Semester,  Student_Date, Student_Photo, Student_Notes) VALUES ('$sec_student_ID', '$sec_student_name', '$sec_student_major', '$sec_student_year', '$sec_student_semester', '$student_date', '$student_photo', '$sec_student_notes')"; 
             
             $check = "SELECT * FROM Student WHERE Student_ID = '$sec_student_ID'";
             

@@ -5,7 +5,7 @@
   <h5 id="Current_Date"></h5>
   <script src="JS/ShowCurrentDate.js"></script>
 
-     <form name="Student-Information-Input-Form" class="w3-container" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" autocomplete="off" enctype="multipart/form-data">
+     <form id ="student-information-input-form" name="Student-Information-Input-Form" class="w3-container" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" autocomplete="off" enctype="multipart/form-data">
         <p>
             <img id="Student-Profile-Image" src="#" alt="">
         </p>
@@ -47,14 +47,18 @@
                 <option value="Summer" name="Summer">Summer</option>
             </select>
             
+
+
             <p>Miscellaneous Notes(this should be moved to ILRMiscNotes file):
                 <textarea id="notes" class="notes" name="notes" value = "notes"></textarea>
             </p>
-            
-        </div>
 
+
+            
         <p style="padding-top:10px;">
             <input class="field-full field-style" type="submit" name="submit" value="Update Biographical Information">
         </p>
+            
+        </div>
     </form>
 </div>
