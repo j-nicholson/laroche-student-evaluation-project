@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 06, 2017 at 03:19 AM
+-- Generation Time: Nov 06, 2017 at 06:48 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -30,11 +30,14 @@ USE `Cap_Dev_Run`;
 -- Table structure for table `Class`
 --
 
-CREATE TABLE `Class` (
+DROP TABLE IF EXISTS `Class`;
+CREATE TABLE IF NOT EXISTS `Class` (
   `ClassID` varchar(2) NOT NULL,
   `CourseID` varchar(8) NOT NULL,
   `Syllabus` blob NOT NULL,
-  `Semester` varchar(10) NOT NULL
+  `Semester` varchar(10) NOT NULL,
+  PRIMARY KEY (`ClassID`),
+  UNIQUE KEY `ClassID` (`ClassID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -54,11 +57,14 @@ INSERT INTO `Class` (`ClassID`, `CourseID`, `Syllabus`, `Semester`) VALUES
 -- Table structure for table `Course`
 --
 
-CREATE TABLE `Course` (
+DROP TABLE IF EXISTS `Course`;
+CREATE TABLE IF NOT EXISTS `Course` (
   `CourseID` varchar(8) NOT NULL,
   `CourseTitle` varchar(50) NOT NULL,
   `InstructorID` int(6) NOT NULL,
-  `CourseDescription` varchar(200) NOT NULL
+  `CourseDescription` varchar(200) NOT NULL,
+  PRIMARY KEY (`CourseID`),
+  UNIQUE KEY `CourseID` (`CourseID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -78,7 +84,8 @@ INSERT INTO `Course` (`CourseID`, `CourseTitle`, `InstructorID`, `CourseDescript
 -- Table structure for table `Course_Assessment_Form_Section_1`
 --
 
-CREATE TABLE `Course_Assessment_Form_Section_1` (
+DROP TABLE IF EXISTS `Course_Assessment_Form_Section_1`;
+CREATE TABLE IF NOT EXISTS `Course_Assessment_Form_Section_1` (
   `CAFS1ID` int(11) NOT NULL,
   `NewSLOs` longblob NOT NULL,
   `Upgrades` longblob NOT NULL,
@@ -102,14 +109,16 @@ INSERT INTO `Course_Assessment_Form_Section_1` (`CAFS1ID`, `NewSLOs`, `Upgrades`
 -- Table structure for table `Course_SLOs`
 --
 
-CREATE TABLE `Course_SLOs` (
+DROP TABLE IF EXISTS `Course_SLOs`;
+CREATE TABLE IF NOT EXISTS `Course_SLOs` (
   `CourseSLOID` int(6) NOT NULL,
   `CourseID` varchar(10) NOT NULL,
   `SLO1` varchar(255) DEFAULT NULL,
   `SLO2` varchar(255) DEFAULT NULL,
   `SLO3` varchar(255) DEFAULT NULL,
   `SLO4` varchar(255) DEFAULT NULL,
-  `SLO5` varchar(255) DEFAULT NULL
+  `SLO5` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`CourseSLOID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -126,10 +135,13 @@ INSERT INTO `Course_SLOs` (`CourseSLOID`, `CourseID`, `SLO1`, `SLO2`, `SLO3`, `S
 -- Table structure for table `Instructor`
 --
 
-CREATE TABLE `Instructor` (
+DROP TABLE IF EXISTS `Instructor`;
+CREATE TABLE IF NOT EXISTS `Instructor` (
   `InstructorID` int(6) NOT NULL,
   `InstructorName` varchar(40) NOT NULL,
-  `InstructorTitle` varchar(40) NOT NULL
+  `InstructorTitle` varchar(40) NOT NULL,
+  PRIMARY KEY (`InstructorID`),
+  UNIQUE KEY `InstructorID` (`InstructorID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -147,9 +159,12 @@ INSERT INTO `Instructor` (`InstructorID`, `InstructorName`, `InstructorTitle`) V
 -- Table structure for table `SLOs`
 --
 
-CREATE TABLE `SLOs` (
+DROP TABLE IF EXISTS `SLOs`;
+CREATE TABLE IF NOT EXISTS `SLOs` (
   `SLOID` int(2) NOT NULL,
-  `SLOName` varchar(20) NOT NULL
+  `SLOName` varchar(20) NOT NULL,
+  PRIMARY KEY (`SLOID`),
+  UNIQUE KEY `SLOID` (`SLOID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -169,7 +184,8 @@ INSERT INTO `SLOs` (`SLOID`, `SLOName`) VALUES
 -- Table structure for table `Student`
 --
 
-CREATE TABLE `Student` (
+DROP TABLE IF EXISTS `Student`;
+CREATE TABLE IF NOT EXISTS `Student` (
   `Student_ID` int(32) NOT NULL,
   `Student_Name` varchar(255) NOT NULL,
   `Student_Major` varchar(255) NOT NULL,
@@ -177,7 +193,8 @@ CREATE TABLE `Student` (
   `Student_Semester` varchar(32) NOT NULL,
   `Student_Date` datetime DEFAULT NULL,
   `Student_Photo` varchar(255) DEFAULT NULL,
-  `Student_Notes` longtext NOT NULL
+  `Student_Notes` longtext NOT NULL,
+  PRIMARY KEY (`Student_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -185,8 +202,9 @@ CREATE TABLE `Student` (
 --
 
 INSERT INTO `Student` (`Student_ID`, `Student_Name`, `Student_Major`, `Student_Year`, `Student_Semester`, `Student_Date`, `Student_Photo`, `Student_Notes`) VALUES
-(111111, 'Abdullah Almusallam', 'CS', '2016', 'Summer', '2017-11-06 02:42:25', 'Controller/Independent-Learning-Record-Controllers/Student-Photos/Abdullah Almusallam/chemistry_logo.png', 'This is Abdullah'),
-(123456, 'test2', 'CS', '2015', 'Spring', '2017-11-06 03:07:24', '', 'updated notes'),
+(111111, 'Abdullah Almusallam', 'CS', '2016', 'Summer', '2017-11-06 18:00:51', '', 'This is Abdullah and johnny'),
+(112211, 'test100', 'CS', '2016', 'Summer', '2017-11-06 18:39:56', '', ''),
+(123456, 'test2', 'CS', '2015', 'Spring', '2017-11-06 18:38:44', '', ''),
 (131213, 'test3', 'Biochemistry', '2016', 'Summer', '2017-11-06 03:16:59', 'Controller/Independent-Learning-Record-Controllers/Student-Photos/test3/chemistry_logo.png', 'New notes'),
 (131221, 'test100', 'Biochemistry', '2014', 'Fall', '2017-11-06 02:20:07', '', 'kgldfgdfgdf');
 
@@ -196,10 +214,12 @@ INSERT INTO `Student` (`Student_ID`, `Student_Name`, `Student_Major`, `Student_Y
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
-  `id` int(12) NOT NULL,
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -209,66 +229,6 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `email`, `password`) VALUES
 (3, 'Abdullah@test.com', '6afd8707350fc31ca57a204757757a71'),
 (4, 'test@test.com', 'f5183be9aa9e17875c6994340f0c738c');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `Class`
---
-ALTER TABLE `Class`
-  ADD PRIMARY KEY (`ClassID`),
-  ADD UNIQUE KEY `ClassID` (`ClassID`);
-
---
--- Indexes for table `Course`
---
-ALTER TABLE `Course`
-  ADD PRIMARY KEY (`CourseID`),
-  ADD UNIQUE KEY `CourseID` (`CourseID`);
-
---
--- Indexes for table `Course_SLOs`
---
-ALTER TABLE `Course_SLOs`
-  ADD PRIMARY KEY (`CourseSLOID`);
-
---
--- Indexes for table `Instructor`
---
-ALTER TABLE `Instructor`
-  ADD PRIMARY KEY (`InstructorID`),
-  ADD UNIQUE KEY `InstructorID` (`InstructorID`);
-
---
--- Indexes for table `SLOs`
---
-ALTER TABLE `SLOs`
-  ADD PRIMARY KEY (`SLOID`),
-  ADD UNIQUE KEY `SLOID` (`SLOID`);
-
---
--- Indexes for table `Student`
---
-ALTER TABLE `Student`
-  ADD PRIMARY KEY (`Student_ID`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
