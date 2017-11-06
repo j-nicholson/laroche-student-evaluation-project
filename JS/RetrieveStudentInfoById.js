@@ -50,6 +50,9 @@ function retrieveStudentInfoById(id) {
                     image.height ="200";
                     image.width ="200";
                 }
+                
+                // Grab the Student_Notes from the Database
+                document.getElementById('notes').value = studentJson.Student_Notes;
             }
         };
         // Open the xmlhttp GET Request and pass the student ID along as a variable in the URL

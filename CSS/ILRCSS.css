@@ -38,5 +38,10 @@ div.tab button.active {
     margin-left: 20px;
 }
 
+#notes {     
+    width: 75%;
+    height: 45%;    
+}
+
 
 
