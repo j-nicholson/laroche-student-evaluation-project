@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 06, 2017 at 06:48 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.10
+-- Generation Time: Nov 07, 2017 at 05:13 AM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,7 +30,6 @@ USE `Cap_Dev_Run`;
 -- Table structure for table `Class`
 --
 
-DROP TABLE IF EXISTS `Class`;
 CREATE TABLE IF NOT EXISTS `Class` (
   `ClassID` varchar(2) NOT NULL,
   `CourseID` varchar(8) NOT NULL,
@@ -57,7 +56,6 @@ INSERT INTO `Class` (`ClassID`, `CourseID`, `Syllabus`, `Semester`) VALUES
 -- Table structure for table `Course`
 --
 
-DROP TABLE IF EXISTS `Course`;
 CREATE TABLE IF NOT EXISTS `Course` (
   `CourseID` varchar(8) NOT NULL,
   `CourseTitle` varchar(50) NOT NULL,
@@ -84,7 +82,6 @@ INSERT INTO `Course` (`CourseID`, `CourseTitle`, `InstructorID`, `CourseDescript
 -- Table structure for table `Course_Assessment_Form_Section_1`
 --
 
-DROP TABLE IF EXISTS `Course_Assessment_Form_Section_1`;
 CREATE TABLE IF NOT EXISTS `Course_Assessment_Form_Section_1` (
   `CAFS1ID` int(11) NOT NULL,
   `NewSLOs` longblob NOT NULL,
@@ -101,6 +98,15 @@ CREATE TABLE IF NOT EXISTS `Course_Assessment_Form_Section_1` (
 INSERT INTO `Course_Assessment_Form_Section_1` (`CAFS1ID`, `NewSLOs`, `Upgrades`, `Enhancements`, `Modifications`, `Other`) VALUES
 (11111, 0x4e6f6e65, 0x4e6f6e65, 0x4e6f6e65, 0x4e6f6e65, 0x48656c6c6f),
 (0, '', '', '', '', ''),
+(0, '', '', '', '', ''),
+(0, '', '', '', '', ''),
+(0, '', '', '', '', ''),
+(0, '', '', '', '', ''),
+(0, '', '', '', '', ''),
+(0, '', '', '', '', ''),
+(0, '', '', '', '', ''),
+(0, '', '', '', '', ''),
+(0, '', '', '', '', ''),
 (0, '', '', '', '', '');
 
 -- --------------------------------------------------------
@@ -109,7 +115,6 @@ INSERT INTO `Course_Assessment_Form_Section_1` (`CAFS1ID`, `NewSLOs`, `Upgrades`
 -- Table structure for table `Course_SLOs`
 --
 
-DROP TABLE IF EXISTS `Course_SLOs`;
 CREATE TABLE IF NOT EXISTS `Course_SLOs` (
   `CourseSLOID` int(6) NOT NULL,
   `CourseID` varchar(10) NOT NULL,
@@ -126,8 +131,10 @@ CREATE TABLE IF NOT EXISTS `Course_SLOs` (
 --
 
 INSERT INTO `Course_SLOs` (`CourseSLOID`, `CourseID`, `SLO1`, `SLO2`, `SLO3`, `SLO4`, `SLO5`) VALUES
+(225564, '04', 'false', 'true', 'true', 'false', 'false'),
 (387684, '', 'false', 'true', 'true', 'false', 'false'),
-(837367, '', 'true', 'true', 'false', 'false', 'false');
+(837367, '', 'true', 'true', 'false', 'false', 'false'),
+(928525, 'CSCI4098', 'false', 'true', 'true', 'false', 'false');
 
 -- --------------------------------------------------------
 
@@ -135,7 +142,6 @@ INSERT INTO `Course_SLOs` (`CourseSLOID`, `CourseID`, `SLO1`, `SLO2`, `SLO3`, `S
 -- Table structure for table `Instructor`
 --
 
-DROP TABLE IF EXISTS `Instructor`;
 CREATE TABLE IF NOT EXISTS `Instructor` (
   `InstructorID` int(6) NOT NULL,
   `InstructorName` varchar(40) NOT NULL,
@@ -159,7 +165,6 @@ INSERT INTO `Instructor` (`InstructorID`, `InstructorName`, `InstructorTitle`) V
 -- Table structure for table `SLOs`
 --
 
-DROP TABLE IF EXISTS `SLOs`;
 CREATE TABLE IF NOT EXISTS `SLOs` (
   `SLOID` int(2) NOT NULL,
   `SLOName` varchar(20) NOT NULL,
@@ -184,7 +189,6 @@ INSERT INTO `SLOs` (`SLOID`, `SLOName`) VALUES
 -- Table structure for table `Student`
 --
 
-DROP TABLE IF EXISTS `Student`;
 CREATE TABLE IF NOT EXISTS `Student` (
   `Student_ID` int(32) NOT NULL,
   `Student_Name` varchar(255) NOT NULL,
@@ -206,7 +210,9 @@ INSERT INTO `Student` (`Student_ID`, `Student_Name`, `Student_Major`, `Student_Y
 (112211, 'test100', 'CS', '2016', 'Summer', '2017-11-06 18:39:56', '', ''),
 (123456, 'test2', 'CS', '2015', 'Spring', '2017-11-06 18:38:44', '', ''),
 (131213, 'test3', 'Biochemistry', '2016', 'Summer', '2017-11-06 03:16:59', 'Controller/Independent-Learning-Record-Controllers/Student-Photos/test3/chemistry_logo.png', 'New notes'),
-(131221, 'test100', 'Biochemistry', '2014', 'Fall', '2017-11-06 02:20:07', '', 'kgldfgdfgdf');
+(131221, 'test100', 'Biochemistry', '2014', 'Fall', '2017-11-06 02:20:07', '', 'kgldfgdfgdf'),
+(888888, 'Johnny Nicholson', 'Chemistry', '2014', 'Fall', '2017-11-06 19:20:53', '', ''),
+(999999, 'Hey there', 'Chemistry', '2014', 'Fall', '2017-11-06 19:23:57', '', '');
 
 -- --------------------------------------------------------
 
@@ -214,7 +220,6 @@ INSERT INTO `Student` (`Student_ID`, `Student_Name`, `Student_Major`, `Student_Y
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(12) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
