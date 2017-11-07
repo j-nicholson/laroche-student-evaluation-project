@@ -43,15 +43,14 @@
         ?>
     <div id="slos">
        <div style="text-align:center" ><input type="button" id="button1" value = "Knowledge Base" class='button' style= "color:black" onclick="setSLOButtonColor('button1', '#101010')";/><td></td><input type="button" id="button2" value = "Lab Skills" class='button' style= "color:black" onclick="setSLOButtonColor('button2', '#101010')";/><td></td><input type="button" id="button3" value = "Practice" class='button' style= "color:black" onclick="setSLOButtonColor('button3', '#101010')";/><td></td><input type="button" id="button4" value = "Societal Connects" class='button' style= "color:black" onclick="setSLOButtonColor('button4', '#101010')";/><td></td><input type="button" id="button5" value = "Capstone" class='button' style= "color:black" onclick="setSLOButtonColor('button5', '#101010')";/></div>
-        <div style="text-align:center" ><input type="button" id="slobutton" value = "SLO submit" class='button' style= "color:black" onclick="sloSubmit()";/></div>
+        
 </body>
 </html>
 
-<!--MY ADDED CODE-->
 
 
 
-<br>
+
     <br><a href="Controller/Student-Assessment-Controllers/Student-Assessment-Syllabus-Download.php"><div style="text-align:center" >Syllabus</div></a><br>
 
 
@@ -60,7 +59,7 @@
      <legend>Course Assessment Form Section I</legend>
       <br>
         <?php
-    //include "Controller/Student-Assessment-Controllers/Student-Assessment-Syllabus-Download.php";
+    
     include "Controller/Student-Assessment-Controllers/Student-Assessment-Update-SLO-Information.php";
 ?>
         <div style="text-align:center" ><label;>New SLOs:<br> <textarea rows="4" cols="100" type = text name = "NewSLOs" /></textarea></label></div><br>
