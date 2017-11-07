@@ -1,0 +1,79 @@
+
+<div id="AdmissionsPlacementInfo" class="tabcontent" align = "center">
+<h1> Admission Placement Information </h1>
+<link rel = "stylesheet" href = "CSS/ILRCSS.css">
+<form>
+<script>
+      $(document).ready(function () {
+    $(".textBoxAppear").hide();
+    $('input[type="radio"]').eq(0).change(function() {
+        $(".textBoxAppear").show()
+    });
+
+    $('input[type="radio"]').eq(1).change(function() {
+        $(".textBoxAppear").hide()
+    });
+
+});
+
+</script>
+<!--onchange="showfield(this.options[this.selectedIndex].value)"-->
+<!-- For the math results-->
+  <label>Math Placement Testing Result: </label>
+  <select class = "field-style" id = "mathPlacementResult" name = "mathPlacement" value = "">
+      <option value = "A" name = "A">A</option>
+      <option value = "A-" name = "A-">A-</option>
+      <option value = "B+" name = "B+">B+</option>
+      <option value = "B" name = "B">B</option>
+      <option value = "B-" name = "B-">B-</option>
+      <option value = "C+" name = "C+">C+</option>
+      <option value = "C" name = "C">C</option>
+      <option value = "C-" name = "C-">C-</option>
+      <option value = "D+" name = "D+">D+</option>
+      <option value = "D" name = "D">D</option>
+      <option value = "D-" name = "D-">D-</option>
+      <option value = "F" name = "F">F</option>
+    </select><br>
+     <br>
+
+<!--  For the athletics choices-->
+  <label> Intercollegiate athletics? </label>
+  <input type = "radio" name = "athletes" value = "yes" id = "yes"> Yes
+  <input type = "radio" name = "athletes" value = "no" id = "no"> No
+  <label id ="radioText" class = "textBoxAppear"> If yes, Your Sport: </label>
+  <input class = "textBoxAppear" type = "text" name = "showTextBox" id = "showText">
+  <br>
+  <br>
+<!-- For the housing status -->
+
+ <label> Housing Status: </label>
+ <input type = "radio" name = "housing" value = "resident" id = "resident"> Resident
+ <input type = "radio" name = "housing" value = "commuter" id = "commuter"> Commuter
+   <br>
+   <br>
+
+
+<!--  Honor Institute  -->
+
+ <label> Honors Institute? </label>
+ <input type = "radio" name = "honors" value = "honorsYes" id = "honorYes"> Yes
+ <input type = "radio" name = "honors" value = "honorsNo" id = "honorNo"> No
+ <br>
+ <br>
+
+<!-- International Student-->
+ <label> International Student?</label>
+ <select name="InternationalStudent" id="intStudent" onchange="
+                    if (this.value=='Yes'){this.form['otherTextBox'].style.visibility='visible'}else {this.form['otherTextBox'].style.visibility='hidden'};">
+                     <option  value="No">No</option>
+  					 <option  value="Yes">Yes</option>
+				</select>
+     <label name = "otherTextBox"> If yes, your home country:</label>
+     <input id = "InternationalStudentLbl" type="textbox" name="otherTextBox" style="visibility: hidden">
+
+ <br>
+ <br>
+</form>
+
+
+</div>

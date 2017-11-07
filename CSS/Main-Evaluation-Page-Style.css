@@ -1,0 +1,119 @@
+body {
+    margin:0;
+    padding:0;
+    background-color: bisque;
+}
+
+.Top-Navigation-Pane {
+  overflow: hidden;
+  background: linear-gradient(to top left, black, brown);
+}
+
+.Top-Navigation-Pane a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.Top-Navigation-Pane a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.Top-Navigation-Pane a.active {
+    background-color:black;
+    color: white;
+}
+
+.Top-Navigation-Pane a.logOut {
+    color: white;
+}
+
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+header {
+    padding: 0.1em;
+    color: white;
+    background: linear-gradient(to top left, black, brown);
+    clear: left;
+    text-align: center;
+    text-shadow: 2px 2px 4px black;
+    opacity: 1;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    background-color: bisque;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#ILR-Title{
+    text-align: center;
+    font-size: 170%;
+    color:black;
+}
+
+#Student-Information-Form{
+    text-align: center; 
+    border: 2px brown solid;
+    max-width: 530px;
+    padding: 15px;
+    margin: 10 auto;
+    border-radius: 0.3em;
+}
+
+h5 {
+    text-align: center;
+}
+
+.par {
+    font-family:"Arial Black";
+    line-height:120%;
+}
+html {
+height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat:no-repeat;
+}
+
+.Select-A-Course-Head {
+    text-align: center;
+}
+.head5 {
+    text-align: center;
+}
+.displayimg {
+    display: block;
+    margin: 0 auto;
+}
+.button {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+    color: black;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 150px;
+}
+label#SLOs ~ span {
+  display: inline-block;
+  width: 180px;
+  vertical-align: middle;
+}
