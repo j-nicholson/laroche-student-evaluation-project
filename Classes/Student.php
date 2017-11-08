@@ -7,6 +7,8 @@
         private $student_Semester;
         private $student_Photo;
         private $student_Date;
+        private $student_Math_Grade;
+        private $student_Athletics;
         private $student_Notes;
 
         public function set_student_ID($id) {
@@ -40,6 +42,26 @@
             $this->student_Date = $date;
         }
         
+        public function set_student_math_grade($student_Math_Grade){
+            $this->student_Math_Grade = $student_Math_Grade;
+        }
+        
+        public function set_student_Athletics($student_Athletics){
+            $this->student_Athletics = $student_Athletics;
+        }
+        
+        public function set_student_Housing_Status($student_Housing_Status){
+            $this->student_Housing_Status = $student_Housing_Status;
+        }
+        
+        public function set_student_Honors_Institute($student_Honors_Institute){
+            $this->student_Honors_Institute = $student_Honors_Institute;
+        }
+        
+        public function set_student_International_Student($student_International_Student){
+            $this->student_International_Student = $student_International_Student;
+        }
+        
          public function set_student_notes($notes) {
             $this->student_Notes = $notes;
         }
@@ -71,7 +93,25 @@
         public function get_student_date() {
             return $this->student_Date;
         }
+        public function get_student_math_grade() {
+            return $this->student_Math_Grade;
+        }
         
+        public function get_student_Athletics() {
+            return $this->student_Athletics;
+        }
+        
+         public function get_student_Housing_Status() {
+            return $this->student_Housing_Status;
+        }
+        
+         public function get_student_Honors_Institute() {
+            return $this->student_Honors_Institute;
+        }
+        
+         public function get_student_International_Student() {
+            return $this->student_International_Student;
+        }
         public function get_student_notes() {
             return $this->student_Notes;
         }

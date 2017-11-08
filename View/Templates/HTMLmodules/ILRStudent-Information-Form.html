@@ -1,5 +1,3 @@
-
-
 <div id="Student-Information-Form" class="tabcontent">
   <h2 id="ILR-Title">Biographical Information</h2>
   <h5 id="Current_Date"></h5>
@@ -46,11 +44,63 @@
                 <option value="Spring" name="Spring">Spring</option>
                 <option value="Summer" name="Summer">Summer</option>
             </select>
+            <br>
+            <h2 id="ILR-Title">Admissions Placement Information</h2>
+<!-- For the math results-->
+          <label>Math Placement Testing Result: </label>
+          <select class = "field-style" id = "mathPlacementResult" name = "mathPlacement">
+            <option value = "A" name = "A">A</option>
+            <option value = "A-" name = "A-">A-</option>
+            <option value = "B+" name = "B+">B+</option>
+            <option value = "B" name = "B">B</option>
+            <option value = "B-" name = "B-">B-</option>
+            <option value = "C+" name = "C+">C+</option>
+            <option value = "C" name = "C">C</option>
+            <option value = "C-" name = "C-">C-</option>
+            <option value = "D+" name = "D+">D+</option>
+            <option value = "D" name = "D">D</option>
+            <option value = "D-" name = "D-">D-</option>
+            <option value = "F" name = "F">F</option>
+          </select><br>
+          <br>
 
-            <!--<p>Miscellaneous Notes(this should be moved to ILRMiscNotes file):
-                <textarea id="notes" class="notes" name="notes" value = "notes"></textarea>
-            </p>-->
+          <!--  For the athletics choices-->
+          <label> Intercollegiate athletics? </label>
+          <input type = "radio" name = "athletes" value = "yes" id = "yes" onclick="displayStudentAthletics(this.id)"> Yes
+          <input type = "radio" name = "athletes" value = "no" id = "no" onclick="displayStudentAthletics(this.id)"> No
+          <div id="StudentAthleticsDisplay"></div>
+          <!--<label id ="radioText" class = "textBoxAppear"> If yes, Your Sport: </label>-->
+          <!--  <input class = "textBoxAppear" type = "text" name = "showTextBox" id = "showText">-->
+          <!-- For the housing status -->
+          <br>
 
+          <label> Housing Status: </label>
+          <input type = "radio" name = "housing" value = "resident" id = "resident"> Resident
+          <input type = "radio" name = "housing" value = "commuter" id = "commuter"> Commuter
+          <br>
+          <br>
+
+
+          <!--  Honor Institute  -->
+
+          <label> Honors Institute? </label>
+          <input type = "radio" name = "honors" value = "honorsYes" id = "honorYes"> Yes
+          <input type = "radio" name = "honors" value = "honorsNo" id = "honorNo"> No
+          <br>
+          <br>
+
+          <!-- International Student-->
+          <label> International Student?</label>
+          <select name="InternationalStudent" id="intStudent" onchange="showOtherInternationalField(this.options[this.selectedIndex].value)">
+            <option  value="No" name="No">No</option>
+  				  <option  value="Yes" name="Yes">Yes</option>
+          </select>
+          <div id="otherInternationalText"></div>
+
+          <h2 id="ILR-Title">Miscellaneous Information</h2>
+          <p>
+            <textarea id="notes" class="notes" name="notes" value = "notes"></textarea>
+          </p>
         </div>
         <p style="padding-top:10px;">
             <input class="field-full field-style" type="submit" name="submit" value="Update Biographical Information" onclick="submitAll()">
