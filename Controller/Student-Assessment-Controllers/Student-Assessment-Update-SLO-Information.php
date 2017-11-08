@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
     if(isset($_POST["submitted"])){
 
         include "Controller/DBConnection.php";
@@ -22,11 +21,6 @@
     include "Controller/DBConnection.php";
 
 
-=======
-    if (isset($_POST['submitted'])){    
-    include "Controller/DBConnection.php";
-        
->>>>>>> 55dad2b9bdec1a949d7e1491fa15a1a54f96f949
         $CAFS1ID = $_POST['CAFS1ID'];
         $NewSLOs = $_POST['NewSLOs'];
         $Upgrades = $_POST['Upgrades'];
@@ -34,11 +28,7 @@
         $Modifications = $_POST['Modifications'];
         $Other = $_POST['Other'];
         $sqlinsert = "INSERT INTO Course_Assessment_Form_Section_1 (CAFS1ID, NewSLOs, Upgrades, Enhancements, Modifications, Other) VALUES ('$CAFS1ID', '$NewSLOs', '$Upgrades', '$Enhancements', '$Modifications', '$Other')";
-<<<<<<< HEAD
 
-=======
-     
->>>>>>> 55dad2b9bdec1a949d7e1491fa15a1a54f96f949
         if(!mysqli_query($connection, $sqlinsert)){
             die('error inserting');
         }
