@@ -5,7 +5,7 @@
   <h5 id="Current_Date"></h5>
   <script src="JS/ShowCurrentDate.js"></script>
 
-     <form name="Student-Information-Input-Form" class="w3-container" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" autocomplete="off" enctype="multipart/form-data">
+     <form id="Student-Information-Input-Form" name="Student-Information-Input-Form" class="w3-container" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" autocomplete="off" enctype="multipart/form-data">
         <p>
             <img id="Student-Profile-Image" src="#" alt="">
         </p>
@@ -23,6 +23,7 @@
             <input id="studentName" class="field-style field-split" type="text" name="studentName" required>
         </p>
 
+
         <div id="Date-Last-Updated"></div>
 
         <div class="wrapper">
@@ -33,7 +34,7 @@
                 <option value="OtherOption" name="OtherOption">Other</option>
             </select>
             <div id="Other-Text" style="padding-left:5px;"></div>
-
+            <br>
             <label style="padding-left:38px;padding-right:2px;">Year: </label>
             <select class="field-style" id="studentYear" name="year">
             </select>
@@ -45,10 +46,14 @@
                 <option value="Spring" name="Spring">Spring</option>
                 <option value="Summer" name="Summer">Summer</option>
             </select>
-        </div>
 
+            <!--<p>Miscellaneous Notes(this should be moved to ILRMiscNotes file):
+                <textarea id="notes" class="notes" name="notes" value = "notes"></textarea>
+            </p>-->
+
+        </div>
         <p style="padding-top:10px;">
-            <input class="field-full field-style" type="submit" name="submit" value="Update Biographical Information">
+            <input class="field-full field-style" type="submit" name="submit" value="Update Biographical Information" onclick="submitAll()">
         </p>
     </form>
 </div>

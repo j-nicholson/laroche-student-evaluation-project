@@ -33,3 +33,15 @@ div.tab button.active {
     border: 1px solid #ccc;
     border-top: none;
 }
+
+#radioText {
+    margin-left: 20px;
+}
+
+#notes {     
+    width: 75%;
+    height: 45%;    
+}
+
+
+

@@ -7,6 +7,7 @@
         <script src="JS/DisplayStudentProfilePicture.js"></script>
         <script src="JS/ShowOtherMajorField.js"></script>
         <script src="JS/RetrieveStudentInfoById.js"></script>
+        <script src="JS/formSubmit.js"></script>
 
     </head>
     <body>

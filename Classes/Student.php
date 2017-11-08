@@ -7,6 +7,7 @@
         private $student_Semester;
         private $student_Photo;
         private $student_Date;
+        private $student_Notes;
 
         public function set_student_ID($id) {
             $this->student_ID = $id;
@@ -38,6 +39,10 @@
         public function set_student_date($date) {
             $this->student_Date = $date;
         }
+        
+         public function set_student_notes($notes) {
+            $this->student_Notes = $notes;
+        }
 
         public function get_student_ID() {
             return $this->student_ID;
@@ -65,6 +70,10 @@
 
         public function get_student_date() {
             return $this->student_Date;
+        }
+        
+        public function get_student_notes() {
+            return $this->student_Notes;
         }
     }
 ?>

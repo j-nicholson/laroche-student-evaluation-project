@@ -9,11 +9,12 @@
         <script type = "text/javascript" src = "jquery.js"></script>
         <link rel="stylesheet" type="text/css" href="CSS/Main-Evaluation-Page-Style.css">
         <link rel="stylesheet" type="text/css" href="CSS/Student-Assessment-Style.css">
-    
-        <script src="js/libs/jquery.min.js" type="text/javascript"></script>
-    
+
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
         <script type="text/javascript" src="JS/SetSLOButtonColor.js"></script>
-    
+        <script type="text/javascript" src="JS/SubmitSLOInformation.js"></script>
+
 </head>
 <body>
     <script type="text/javascript" src="JS/SubmitSLOInformation.js"></script>
@@ -21,18 +22,18 @@
         <a href="Independent-Learning-Record-Main.php">Independent Learning Record</a>
         <a href="Student-Assessment-Main.php">Assessment Form</a>
         <a class="logOut" href="Chemistry-Student-Evaluation-Login-Main.php?logout=1">Logout</a>
-    </div> 
+    </div>
     <img src="https://laroche.edu/img/logo.png" alt="Logo" style="width:300px;height:80px;">
         <header>
-            <h1>Chemistry Department</h1> 
+            <h1>Chemistry Department</h1>
             <h2>Student Assessment Form</h2>
         </header>
 
     <h3 class="Select-A-Course-Head">Select a Course
     <label>
         <select name= "coursecode" onchange="this.form.submit()" onchange="makeButtons()">
-        <option value="Select a Year/Sec">Select a Course</option>  
-        <?php 
+        <option value="Select a Year/Sec">Select a Course</option>
+        <?php
             include "Controller/Student-Assessment-Controllers/Student-Assessment-Course-Select.php";
         ?>
         </select>
@@ -48,9 +49,9 @@
         <input type="button" id="button5" value = "Capstone" class='button' style= "color:black" onclick="setSLOButtonColor('button5', '#101010')";/>
         </div>
         <input type="button" id="slobutton" value = "SLO submit" class='button' style= "color:black" onclick="sloSubmit()";/>
-</body> 
+</body>
 </html>
-    
+
 <!--MY ADDED CODE-->
 
 <?php
@@ -73,9 +74,9 @@
         <div><label>Modifications: <input type = text name = "Modifications" /></div></label><br>
         <div><label>Other: <input type = text name = "Other" /></label></div><br>
     </fieldset>
-    
+
        <iframe name="votar" style="display:none;"></iframe>
 <form action="code.php" method="post" target="votar">
     <input type="submit" value="Update" />
-    <input type="hidden" name="ad_id" value="2">            
+    <input type="hidden" name="ad_id" value="2">
 </form>
