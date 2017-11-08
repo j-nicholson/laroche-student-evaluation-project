@@ -42,6 +42,7 @@
             include "Controller/Student-Assessment-Controllers/Student-Assessment-Course-Display.php";
         ?>
     <div id="slos">
+<<<<<<< HEAD
        <div style="text-align:center" ><input type="button" id="button1" value = "Knowledge Base" class='button' style= "color:black" onclick="setSLOButtonColor('button1', '#101010')";/><td></td><input type="button" id="button2" value = "Lab Skills" class='button' style= "color:black" onclick="setSLOButtonColor('button2', '#101010')";/><td></td><input type="button" id="button3" value = "Practice" class='button' style= "color:black" onclick="setSLOButtonColor('button3', '#101010')";/><td></td><input type="button" id="button4" value = "Societal Connects" class='button' style= "color:black" onclick="setSLOButtonColor('button4', '#101010')";/><td></td><input type="button" id="button5" value = "Capstone" class='button' style= "color:black" onclick="setSLOButtonColor('button5', '#101010')";/></div>
 
 </body>
@@ -133,5 +134,43 @@
        <iframe name="votar" style="display:none;"></iframe>
 <form action="Student-Assessment-Main.php" method="post" target="votar">
     <div style="text-align:center">Click To Update All Sections: <input type="submit" name="submitted2" value="Update" onclick="sloSubmit()"/></div>
+=======
+        <input type="button" id="button1" value = "Knowledge Base" class='button' style= "color:black" onclick="setSLOButtonColor('button1', '#101010')";/>
+        <input type="button" id="button2" value = "Lab Skills" class='button' style= "color:black" onclick="setSLOButtonColor('button2', '#101010')";/>
+        <input type="button" id="button3" value = "Practice" class='button' style= "color:black" onclick="setSLOButtonColor('button3', '#101010')";/>
+        <input type="button" id="button4" value = "Societal Connects" class='button' style= "color:black" onclick="setSLOButtonColor('button4', '#101010')";/>
+        <input type="button" id="button5" value = "Capstone" class='button' style= "color:black" onclick="setSLOButtonColor('button5', '#101010')";/>
+        </div>
+        <input type="button" id="slobutton" value = "SLO submit" class='button' style= "color:black" onclick="sloSubmit()";/>
+</body>
+</html>
+
+<!--MY ADDED CODE-->
+
+<?php
+    //include "Controller/Student-Assessment-Controllers/Student-Assessment-Syllabus-Download.php";
+    include "Controller/Student-Assessment-Controllers/Student-Assessment-Update-SLO-Information.php";
+?>
+
+<br>
+<br><a href="Controller/Student-Assessment-Controllers/Student-Assessment-Syllabus-Download.php">Syllabus</a><br>
+
+
+    <form action="code.php" method="post">
+    <input type="hidden" name="submitted2" value="true" />
+    <fieldset>
+    <legend>Course Assessment Form Section 1 (Please be detailed):</legend>
+        <div><label>CAFS1ID: <input type = text name = "CAFS1ID" /></label></div><br>
+        <div><label;>New SLOs: <input type = text name = "NewSLOs" /></label></div><br>
+        <div><label>Upgrades: <input type = text name = "Upgrades" /></label></div><br>
+        <div><label>Enhancements: <input type = text name = "Enhancements" /></label></div><br>
+        <div><label>Modifications: <input type = text name = "Modifications" /></div></label><br>
+        <div><label>Other: <input type = text name = "Other" /></label></div><br>
+    </fieldset>
+
+       <iframe name="votar" style="display:none;"></iframe>
+<form action="code.php" method="post" target="votar">
+    <input type="submit" value="Update" />
+>>>>>>> 55dad2b9bdec1a949d7e1491fa15a1a54f96f949
     <input type="hidden" name="ad_id" value="2">
 </form>
