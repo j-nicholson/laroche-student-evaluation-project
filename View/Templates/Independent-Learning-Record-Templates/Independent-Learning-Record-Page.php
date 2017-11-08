@@ -7,12 +7,13 @@
         <script src="JS/DisplayStudentProfilePicture.js"></script>
         <script src="JS/ShowOtherMajorField.js"></script>
         <script src="JS/RetrieveStudentInfoById.js"></script>
+        <script src="JS/showOtherInternationalField.js"></script>
+        <script src="JS/studentAthleticsDisplay.js"></script>
 
     </head>
     <body>
         <!-- top navigation -->
         <?php
-              //we can use include or read file, stack overflow says use read file
               readfile("View/Templates/HTMLmodules/ILRTopNavigationPane.html");
         ?>
         <!-- END top navigation -->
@@ -26,7 +27,7 @@
 
 
         <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'Student-Information-Form')">Biographical Information</button>
+        <button class="tablinks" id="default-open" onclick="openTab(event, 'Student-Information-Form')">Biographical Information</button>
         <button class="tablinks" onclick="openTab(event, 'AdmissionsPlacementInfo')">Admissions Placement</button>
         <button class="tablinks" onclick="openTab(event, 'MiscNotes')">Miscelaneous Notes</button>
         </div>
