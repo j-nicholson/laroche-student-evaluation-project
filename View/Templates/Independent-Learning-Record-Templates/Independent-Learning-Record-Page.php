@@ -40,9 +40,9 @@
         ?>
         <!-- END TABS -->
         <script src="JS/openTabs.js"></script>
-    <body>
+    </body>
 
-<html>
+</html>
 <?php
     include "Controller/Independent-Learning-Record-Controllers/Independent-Learning-Record-Student-Data-Input.php";
 ?>
