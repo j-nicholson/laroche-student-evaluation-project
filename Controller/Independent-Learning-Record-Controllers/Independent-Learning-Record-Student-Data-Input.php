@@ -182,10 +182,18 @@
 
             }
 
+
+            Datahandler::insert_student($student->get_student_ID(), $student->get_student_name(), $student->get_student_major(), $student->get_student_year(), $student->get_student_semester(), $student->get_student_photo(), $student->get_student_date(), $student->get_student_math_grade(), $student->get_student_Athletics(), $student-> get_student_Housing_Status(),$student->get_student_Honors_Institute(),$student->get_student_International_Student());
+        }
+    }
+
+    if(isset($_POST['submitNotes'])) {
+        if($_SERVER['REQUEST_METHOD'] == "POST") {
+            
             $secure_notes = DataHandler::secure_input($_POST['notes']);
             $student->set_student_notes($secure_notes);
-
-            Datahandler::insert_student($student->get_student_ID(), $student->get_student_name(), $student->get_student_major(), $student->get_student_year(), $student->get_student_semester(), $student->get_student_photo(), $student->get_student_date(), $student->get_student_math_grade(), $student->get_student_Athletics(), $student-> get_student_Housing_Status(),$student->get_student_Honors_Institute(),$student->get_student_International_Student() ,$student->get_student_notes());
+            
+             Datahandler::insert_notes($student->get_student_notes());
         }
     }
 ?>

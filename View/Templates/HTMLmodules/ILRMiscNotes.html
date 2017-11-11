@@ -5,7 +5,14 @@
 
    <form>
         <h1> Miscellaneous Notes </h1>
-        <textarea id="notes" class="notes" name="notes" value = "notes"> </textarea>
+       
+        <label>ID: </label>
+            <input id="studentId" class="studentId field-style" type="text" name="studentId" onchange="retrieveStudentInfoById(this.value)" maxlength="6" required><br>
+        <p><textarea id="notes" class="notes" name="notes" value = "notes"> </textarea>
+            </p>
+       <p>
+           <input class="field-full field-style" type="submit" name="submitNotes" value="Save">
+       </p>
    </form>
 
 </div>

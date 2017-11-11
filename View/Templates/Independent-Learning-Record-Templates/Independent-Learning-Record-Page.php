@@ -27,15 +27,15 @@
 
 
         <div class="tab">
-        <button class="tablinks" id="default-open" onclick="openTab(event, 'Student-Information-Form')">Biographical Information</button>
-        <button class="tablinks" onclick="openTab(event, 'AdmissionsPlacementInfo')">Admissions Placement</button>
+        <button class="tablinks" id="default-open" onclick="openTab(event, 'Student-Information-Form')">Biographical Information & Admissions Placement Info</button>
+<!--        <button class="tablinks" onclick="openTab(event, 'AdmissionsPlacementInfo')">Admissions Placement</button>-->
         <button class="tablinks" onclick="openTab(event, 'MiscNotes')">Miscelaneous Notes</button>
         </div>
 
         <!-- TABS -->
         <?php
         include "View/Templates/HTMLmodules/ILRStudent-Information-Form.html";
-        include "View/Templates/HTMLmodules/ILRAdmissionsPlacementInfo.html";
+        //include "View/Templates/HTMLmodules/ILRAdmissionsPlacementInfo.html";
         include "View/Templates/HTMLmodules/ILRMiscNotes.html";
         ?>
         <!-- END TABS -->
