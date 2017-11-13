@@ -15,11 +15,11 @@
             $sec_student_International_Student = mysqli_real_escape_string($connection, $student_International_Student);
             
 
-            $query = "INSERT INTO Student (Student_ID, Student_Name, Student_Major, Student_Year, Student_Semester, Student_Date, Student_Photo, Student_Notes, Student_Math_Grade, Student_Athletics, Student_Housing_Status, Student_Honors, International_Student) VALUES ('$sec_student_ID', '$sec_student_name', '$sec_student_major', '$sec_student_year', '$sec_student_semester', '$student_date', '$student_photo', '$sec_student_notes', '$sec_student_Math_Grade', '$sec_student_Athletics', '$sec_student_Housing_Status', '$sec_student_Honors_Institute', '$sec_student_International_Student')"; 
+            $query = "INSERT INTO Student (Student_ID, Student_Name, Student_Major, Student_Year, Student_Semester, Student_Date, Student_Photo, Student_Math_Grade, Student_Athletics, Student_Housing_Status, Student_Honors, International_Student) VALUES ('$sec_student_ID', '$sec_student_name', '$sec_student_major', '$sec_student_year', '$sec_student_semester', '$student_date', '$student_photo', '$sec_student_Math_Grade', '$sec_student_Athletics', '$sec_student_Housing_Status', '$sec_student_Honors_Institute', '$sec_student_International_Student')"; 
 
             $check = "SELECT * FROM Student WHERE Student_ID = '$sec_student_ID'";
 
-            $update = "UPDATE Student SET Student_Name = '$sec_student_name', Student_Major = '$sec_student_major', Student_Year = '$sec_student_year', Student_Semester = '$sec_student_semester', Student_Date = '$student_date', Student_Photo = '$student_photo', Student_Notes = '$sec_student_notes', Student_Math_Grade = '$sec_student_Math_Grade', Student_Athletics = '$sec_student_Athletics', Student_Housing_Status = '$sec_student_Housing_Status', Student_Honors = '$sec_student_Honors_Institute', International_Student = '$sec_student_International_Student' WHERE Student_ID = '$sec_student_ID'";
+            $update = "UPDATE Student SET Student_Name = '$sec_student_name', Student_Major = '$sec_student_major', Student_Year = '$sec_student_year', Student_Semester = '$sec_student_semester', Student_Date = '$student_date', Student_Photo = '$student_photo', Student_Math_Grade = '$sec_student_Math_Grade', Student_Athletics = '$sec_student_Athletics', Student_Housing_Status = '$sec_student_Housing_Status', Student_Honors = '$sec_student_Honors_Institute', International_Student = '$sec_student_International_Student' WHERE Student_ID = '$sec_student_ID'";
 
             $result_check = mysqli_query($connection, $check);
             if(!$result_check) {
@@ -43,17 +43,31 @@
             }
         }
         
-        public static function insert_notes($student_ID, $student_notes) {
+        //Inserting and Updating the new Table in Database "MiscNotes"
+        public static function insert_notes($student_ID, $student_notes, $user_logged_in, $last_time_edited) {
             include "Controller/DBConnection.php";
             
-            $sec_student_notes = mysqli_real_escape_string($connection, $student_notes);
+            
             $sec_student_ID = mysqli_real_escape_string($connection, $student_ID);
+            $sec_student_notes = mysqli_real_escape_string($connection, $student_notes);
+            $sec_user_logged_in = mysqli_real_escape_string($connection, $user_logged_in);
+            $sec_last_time_edited = mysqli_real_escape_string($connection, $last_time_edited);
             
-            $query = "INSERT INTO Student (Student_ID, Student_Notes) VALUES ('$sec_student_ID', '$sec_student_notes)"; 
             
-            $check = "SELECT Student_Notes FROM Student WHERE Student_ID = '$sec_student_ID'";
+            $query = "INSERT INTO MiscNotes (StudentID, Misc_Notes, User_Logged_In, Last_Time_Edited) VALUES ('$sec_student_ID', '$sec_student_notes, $sec_user_logged_in, $sec_last_time_edited)"; 
             
-            $update = "UPDATE Student SET Student_Notes = '$$sec_student_notes' WHERE Student_ID = '$sec_student_ID'";
+            if(!$query){
+                echo "Nothing Happened!";
+            }
+            
+            $check = "SELECT Misc_Notes FROM MiscNotes WHERE Student_ID = '$sec_student_ID'";
+            //to check if stduent id exists. 
+            $result_check = mysqli_query($connection, $check);
+            if(!$result_check) {
+                die("Query failed 1: " . mysqli_error($connection));
+            }
+ 
+            $update = "UPDATE MiscNotes SET Misc_Notes = '$$sec_student_notes', User_Logged_In = '$sec_user_logged_in', Last_Time_Edited =  '$sec_last_time_edited', WHERE Student_ID = '$sec_student_ID'";
             
         }
 
