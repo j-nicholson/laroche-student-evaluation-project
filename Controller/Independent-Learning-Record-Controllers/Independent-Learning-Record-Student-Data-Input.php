@@ -1,6 +1,6 @@
 <?php
-    include "Classes/Student.php";
-    include "Classes/MiscNotes.php";
+    include "Model/Classes/Student.php";
+    include "Model/Classes/MiscNotes.php";
     include "Controller/Independent-Learning-Record-Controllers/Independent-Learning-Record-Data-Handler.php";
     include "Controller/DBConnection.php";
     $student = new Student();
@@ -190,22 +190,22 @@
         }
     }
     //MiscNotes object is made here with the super global $globalStudentID
-    $miscNotes = new MiscNotes($globalStudentID);
-    
+    /*$miscNotes = new MiscNotes($globalStudentID);
+
     if(isset($_POST['submitNotes'])) {
         if($_SERVER['REQUEST_METHOD'] == "POST") {
             echo $globalStudentID;
             $secure_notes = DataHandler::secure_input($_POST['notes']);
             $miscNotes->set_student_misc_notes($secure_notes);
-            
+
             $last_time_edited = $_POST['lastTimeEdited'];
-            
+
             $miscNotes->set_last_time_edited($last_time_edited);
-            
+
             $userEditing = $_POST['userLoggedIn'];
             $miscNotes->set_user_editing($userEditing);
-                
+
             Datahandler::insert_notes($miscNotes->get_studentID(),$miscNotes->get_misc_notes(), $miscNotes->get_user_editing_info(), $miscNotes->get_last_time_edited());
         }
-    }
+    }*/
 ?>

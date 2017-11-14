@@ -6,6 +6,6 @@
     $ilr_model = new Independent_Learning_Record_Model();
     $ilr_controller = new Independent_Learning_Record_Controller($ilr_model);
     $ilr_view = new Independent_Learning_Record_View($ilr_controller, $ilr_model);
-    
+
     echo $ilr_view->output();
 ?>
