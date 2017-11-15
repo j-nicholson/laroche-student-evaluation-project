@@ -25,10 +25,11 @@ body {
     color:black;     
 }
           
-#logInForm {
+#signUpForm {
     display:none;      
 }
           
 .toggleForms {
-    font-weight: bold;    
+    font-weight: bold;
+    font-size: 100%;
 }

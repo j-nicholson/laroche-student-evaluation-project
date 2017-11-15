@@ -14,7 +14,7 @@
 } ?></div>
 
     <form method="post" id = "signUpForm">
-        <p>Chemistry department</p>
+        <p>Sign up using your email address</p>
         <fieldset class="form-group">
             <input class="form-control" type="email" name="email" placeholder="Your Email">
         </fieldset>
@@ -34,7 +34,7 @@
     </form>
 
     <form method="post" id = "logInForm">
-        <p>Log in using your username and password.</p>
+        <p>Log in using your email and password</p>
         <fieldset class="form-group">
             <input class="form-control" type="email" name="email" placeholder="Your Email">
         </fieldset>
@@ -50,7 +50,7 @@
         <fieldset class="form-group">
             <input class="btn btn-success" type="submit" name="submit" value="Log In!">
         </fieldset>
-        <p><a class="toggleForms">Sign up</a></p>
+        <p><a class="toggleForms">Create a New Account</a></p>
     </form>
 </div>
 
