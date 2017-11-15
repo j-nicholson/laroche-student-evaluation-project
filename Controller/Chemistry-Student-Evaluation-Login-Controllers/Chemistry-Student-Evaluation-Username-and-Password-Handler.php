@@ -7,7 +7,7 @@
         $_COOKIE["id"] = "";
         session_destroy();
     } else if ((array_key_exists("id", $_SESSION) AND $_SESSION['id']) OR (array_key_exists("id", $_COOKIE) AND $_COOKIE['id'])) {
-        header("Location: Independent-Learning-Record-Main.php");
+        header("Location: Independent-Learning-Record-Main.php?action=none");
     }
     if (array_key_exists("submit", $_POST)) {
         include "Controller/DBConnection.php";

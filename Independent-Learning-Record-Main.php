@@ -1,4 +1,5 @@
 <?php
+    //header("Location: Independent-Learning-Record-Main.php?action=none");
     include "Model/Independent-Learning-Record-Model.php";
     include "View/Independent-Learning-Record-View.php";
     include "Controller/Independent-Learning-Record-Controllers/Independent-Learning-Record-Controller.php";
