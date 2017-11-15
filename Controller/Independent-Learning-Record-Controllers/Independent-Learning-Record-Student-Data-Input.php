@@ -1,11 +1,11 @@
 <?php
     include "Model/Classes/Student.php";
-    include "Model/Classes/MiscNotes.php";
     include "Controller/Independent-Learning-Record-Controllers/Independent-Learning-Record-Data-Handler.php";
     include "Controller/DBConnection.php";
     $student = new Student();
-    $globalStudentID = 0;
-    if(isset($_POST['submit'])) {
+    //$globalStudentID = 0;
+    if($_GET['action'] == 'submitStudentInfo') {
+      if(isset($_POST['submit'])) {
         if($_SERVER['REQUEST_METHOD'] == "POST") {
 
             $student->set_student_date(date('Y-m-d H:i:s'));
@@ -13,7 +13,7 @@
             $secure_id = DataHandler::secure_input($_POST['studentId']);
             $student->set_student_ID($secure_id);
             //super global is needed as the contructor for MiscNotes requires a valid studentID
-            $GLOBALS['globalStudentID'] = $secure_id;
+            //$GLOBALS['globalStudentID'] = $secure_id;
 
             $secure_name = DataHandler::secure_input($_POST['studentName']);
             $student->set_student_name($secure_name);
@@ -184,10 +184,9 @@
                     break;
 
             }
-
-
             Datahandler::insert_student($student->get_student_ID(), $student->get_student_name(), $student->get_student_major(), $student->get_student_year(), $student->get_student_semester(), $student->get_student_photo(), $student->get_student_date(), $student->get_student_math_grade(), $student->get_student_Athletics(), $student-> get_student_Housing_Status(),$student->get_student_Honors_Institute(),$student->get_student_International_Student());
         }
+      }
     }
     //MiscNotes object is made here with the super global $globalStudentID
     /*$miscNotes = new MiscNotes($globalStudentID);

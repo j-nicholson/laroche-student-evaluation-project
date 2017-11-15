@@ -28,15 +28,13 @@
 
         <div class="tab">
         <button class="tablinks" id="default-open" onclick="openTab(event, 'Student-Information-Form')">Biographical Information & Admissions Placement Info</button>
-<!--        <button class="tablinks" onclick="openTab(event, 'AdmissionsPlacementInfo')">Admissions Placement</button>-->
         <button class="tablinks" onclick="openTab(event, 'MiscNotes')">Miscelaneous Notes</button>
         </div>
 
         <!-- TABS -->
         <?php
-        include "View/Templates/HTMLmodules/ILRStudent-Information-Form.html";
-        //include "View/Templates/HTMLmodules/ILRAdmissionsPlacementInfo.html";
         include "View/Templates/HTMLmodules/ILRMiscNotes.html";
+        include "View/Templates/HTMLmodules/ILRStudent-Information-Form.html";
         ?>
         <!-- END TABS -->
         <script src="JS/openTabs.js"></script>
@@ -45,4 +43,5 @@
 </html>
 <?php
     include "Controller/Independent-Learning-Record-Controllers/Independent-Learning-Record-Student-Data-Input.php";
+    include "Controller/Independent-Learning-Record-Controllers/Independent-Learning-Record-Student-MiscNotes-Input.php";
 ?>

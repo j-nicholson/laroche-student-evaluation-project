@@ -1,25 +1,12 @@
 <div id="MiscNotes" class="tabcontent" align ="center">
 
+  <link rel = "stylesheet" href = "CSS/ILRCSS.css">
+  <h1> Miscellaneous Notes </h1>
 
-    <link rel = "stylesheet" href = "CSS/ILRCSS.css">
-
-   <form>
-        <h1> Miscellaneous Notes </h1>
-       
-        <label>ID: </label>
-            <input id="studentId" class="studentId field-style" type="text" name="studentId" onchange="retrieveStudentInfoById(this.value)" maxlength="6" required><br>
-            <br>
-            <label> User Logged In: </label>
-            <input type="text" name = "userLoggedIn">
-            <br>
-            <br>
-            <label> Last Time Edited:</label>
-            <input type="text" name = "lastTimeEdited">
-        <p><textarea id="notes" class="notes" name="notes" value = "notes"> </textarea>
-            </p>
-       <p>
-           <input class="field-full field-style" type="submit" name="submitNotes" value="Save">
-       </p>
-   </form>
+  <form name="submitNotesForm" method="post" action="Independent-Learning-Record-Main.php?action=submitStudentNotes">
+    <label>Message: </label>
+    <textarea id="miscNotes" class="miscNotes" name="miscNotes" value="notes"> </textarea>
+    <p><input class="field-full field-style" id="submitNotes" type="submit" name="submitNotes" value="Submit Notes"></p>
+  </form>
 
 </div>

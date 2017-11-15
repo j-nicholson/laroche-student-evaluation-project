@@ -1,5 +1,5 @@
 <?php
-    class MiscNotes {
+    class MiscNote {
       private $miscID;
       private $miscTitle;
       private $miscText;

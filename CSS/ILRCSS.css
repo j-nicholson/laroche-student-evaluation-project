@@ -38,10 +38,11 @@ div.tab button.active {
     margin-left: 20px;
 }
 
-#notes {     
+#notes {
     width: 75%;
-    height: 45%;    
+    height: 45%;
 }
 
-
-
+textarea {
+  resize: none;
+}

@@ -1,5 +1,6 @@
 <?php
     class DataHandler {
+        // Insertion for Student_Info
         public static function insert_student($student_ID, $student_name, $student_major, $student_year, $student_semester, $student_photo, $student_date, $student_Math_Grade, $student_Athletics,$student_Housing_Status,$student_Honors_Institute,$student_International_Student) {
             include "Controller/DBConnection.php";
 
@@ -13,9 +14,9 @@
             $sec_student_Housing_Status = mysqli_real_escape_string($connection, $student_Housing_Status);
             $sec_student_Honors_Institute = mysqli_real_escape_string($connection, $student_Honors_Institute);
             $sec_student_International_Student = mysqli_real_escape_string($connection, $student_International_Student);
-            
 
-            $query = "INSERT INTO Student (Student_ID, Student_Name, Student_Major, Student_Year, Student_Semester, Student_Date, Student_Photo, Student_Math_Grade, Student_Athletics, Student_Housing_Status, Student_Honors, International_Student) VALUES ('$sec_student_ID', '$sec_student_name', '$sec_student_major', '$sec_student_year', '$sec_student_semester', '$student_date', '$student_photo', '$sec_student_Math_Grade', '$sec_student_Athletics', '$sec_student_Housing_Status', '$sec_student_Honors_Institute', '$sec_student_International_Student')"; 
+
+            $query = "INSERT INTO Student (Student_ID, Student_Name, Student_Major, Student_Year, Student_Semester, Student_Date, Student_Photo, Student_Math_Grade, Student_Athletics, Student_Housing_Status, Student_Honors, International_Student) VALUES ('$sec_student_ID', '$sec_student_name', '$sec_student_major', '$sec_student_year', '$sec_student_semester', '$student_date', '$student_photo', '$sec_student_Math_Grade', '$sec_student_Athletics', '$sec_student_Housing_Status', '$sec_student_Honors_Institute', '$sec_student_International_Student')";
 
             $check = "SELECT * FROM Student WHERE Student_ID = '$sec_student_ID'";
 
@@ -42,33 +43,19 @@
                 mysqli_close($connection);
             }
         }
-        
-        //Inserting and Updating the new Table in Database "MiscNotes"
-        public static function insert_notes($student_ID, $student_notes, $user_logged_in, $last_time_edited) {
-            include "Controller/DBConnection.php";
-            
-            
-            $sec_student_ID = mysqli_real_escape_string($connection, $student_ID);
-            $sec_student_notes = mysqli_real_escape_string($connection, $student_notes);
-            $sec_user_logged_in = mysqli_real_escape_string($connection, $user_logged_in);
-            $sec_last_time_edited = mysqli_real_escape_string($connection, $last_time_edited);
-            
-            
-            $query = "INSERT INTO MiscNotes (StudentID, Misc_Notes, User_Logged_In, Last_Time_Edited) VALUES ('$sec_student_ID', '$sec_student_notes, $sec_user_logged_in, $sec_last_time_edited)"; 
-            
-            if(!$query){
-                echo "Nothing Happened!";
-            }
-            
-            $check = "SELECT Misc_Notes FROM MiscNotes WHERE Student_ID = '$sec_student_ID'";
-            //to check if stduent id exists. 
-            $result_check = mysqli_query($connection, $check);
-            if(!$result_check) {
-                die("Query failed 1: " . mysqli_error($connection));
-            }
- 
-            $update = "UPDATE MiscNotes SET Misc_Notes = '$$sec_student_notes', User_Logged_In = '$sec_user_logged_in', Last_Time_Edited =  '$sec_last_time_edited', WHERE Student_ID = '$sec_student_ID'";
-            
+
+        // Insertion for Student_Notes
+        public static function insert_notes($miscText, $miscDate) {
+          include "Controller/DBConnection.php";
+          $sec_miscText = mysqli_real_escape_string($connection, $miscText);
+          $sec_miscDate = mysqli_real_escape_string($connection, $miscDate);
+
+          $query = "INSERT INTO Misc_Notes (Misc_Text, Misc_Date) VALUES ('$sec_miscText', '$sec_miscDate')";
+          $result = mysqli_query($connection, $query);
+          if(!$result) {
+            die("Notes insertion failed: " . mysqli_error($connection));
+          }
+          mysqli_close($connection);
         }
 
         public static function secure_input($data) {
