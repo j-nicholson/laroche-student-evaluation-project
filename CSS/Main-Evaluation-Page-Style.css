@@ -63,12 +63,21 @@ img {
 }
 
 #Student-Information-Form{
-    text-align: center; 
+    text-align: center;
     border: 2px brown solid;
     max-width: 530px;
     padding: 15px;
     margin: 10 auto;
     border-radius: 0.3em;
+}
+
+#Student-Misc-Notes-Form {
+  text-align: center;
+  border: 2px brown solid;
+  max-width: 530px;
+  padding: 15px;
+  margin: 10 auto;
+  border-radius: 0.3em;
 }
 
 h5 {

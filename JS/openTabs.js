@@ -3,7 +3,7 @@ document.getElementById("default-open").click();
 function openTab(evt, tabID) {
     // Declare all variables
     var i, tabcontent, tablinks;
-    //document.getElementById("Student-Information-Form").click();
+    document.getElementById("Student-Information-Form").click();
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {

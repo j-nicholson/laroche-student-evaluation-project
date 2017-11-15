@@ -1,11 +1,15 @@
 <div id="MiscNotes" class="tabcontent" align ="center">
 
+  <link rel="stylesheet" href="CSS/Main-Evaluation-Page-Style.css">
   <link rel = "stylesheet" href = "CSS/ILRCSS.css">
-  <h1> Miscellaneous Notes </h1>
+  <div id="Student-Misc-Notes-Form">
+    <h1> Miscellaneous Notes </h1>
 
-  <form name="submitNotesForm" method="post" action="Independent-Learning-Record-Main.php?action=submitStudentNotes">
-    <textarea id="miscNotes" class="miscNotes" rows="10" cols="50" name="miscNotes" value="notes"> </textarea>
-    <p><input class="field-full field-style" id="submitNotes" type="submit" name="submitNotes" value="Submit Notes"></p>
-  </form>
-
+    <h5>Create new post:</h5>
+    <form name="submitNotesForm" method="post" action="Independent-Learning-Record-Main.php?action=submitStudentNotes">
+      <p><label>Student ID: </label><input id="miscNotesStudentId" name="miscNotesStudentId" required></input></p>
+      <textarea id="miscNotes" class="miscNotes" rows="10" cols="50" name="miscNotes" required></textarea>
+      <p><input class="field-full field-style" id="submitNotes" type="submit" name="submitNotes" value="Submit Notes"></p>
+    </form>
+  </div>
 </div>
