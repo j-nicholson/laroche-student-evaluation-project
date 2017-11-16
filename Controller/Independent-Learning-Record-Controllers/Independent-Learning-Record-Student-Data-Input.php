@@ -1,16 +1,19 @@
 <?php
-    include "Classes/Student.php";
+    include "Model/Classes/Student.php";
     include "Controller/Independent-Learning-Record-Controllers/Independent-Learning-Record-Data-Handler.php";
     include "Controller/DBConnection.php";
     $student = new Student();
-
-    if(isset($_POST['submit'])) {
+    //$globalStudentID = 0;
+    if($_GET['action'] == 'submitStudentInfo') {
+      if(isset($_POST['submit'])) {
         if($_SERVER['REQUEST_METHOD'] == "POST") {
 
             $student->set_student_date(date('Y-m-d H:i:s'));
 
             $secure_id = DataHandler::secure_input($_POST['studentId']);
             $student->set_student_ID($secure_id);
+            //super global is needed as the contructor for MiscNotes requires a valid studentID
+            //$GLOBALS['globalStudentID'] = $secure_id;
 
             $secure_name = DataHandler::secure_input($_POST['studentName']);
             $student->set_student_name($secure_name);
@@ -181,11 +184,27 @@
                     break;
 
             }
-
-            $secure_notes = DataHandler::secure_input($_POST['notes']);
-            $student->set_student_notes($secure_notes);
-
-            Datahandler::insert_student($student->get_student_ID(), $student->get_student_name(), $student->get_student_major(), $student->get_student_year(), $student->get_student_semester(), $student->get_student_photo(), $student->get_student_date(), $student->get_student_math_grade(), $student->get_student_Athletics(), $student-> get_student_Housing_Status(),$student->get_student_Honors_Institute(),$student->get_student_International_Student() ,$student->get_student_notes());
+            Datahandler::insert_student($student->get_student_ID(), $student->get_student_name(), $student->get_student_major(), $student->get_student_year(), $student->get_student_semester(), $student->get_student_photo(), $student->get_student_date(), $student->get_student_math_grade(), $student->get_student_Athletics(), $student-> get_student_Housing_Status(),$student->get_student_Honors_Institute(),$student->get_student_International_Student());
         }
+      }
     }
+    //MiscNotes object is made here with the super global $globalStudentID
+    /*$miscNotes = new MiscNotes($globalStudentID);
+
+    if(isset($_POST['submitNotes'])) {
+        if($_SERVER['REQUEST_METHOD'] == "POST") {
+            echo $globalStudentID;
+            $secure_notes = DataHandler::secure_input($_POST['notes']);
+            $miscNotes->set_student_misc_notes($secure_notes);
+
+            $last_time_edited = $_POST['lastTimeEdited'];
+
+            $miscNotes->set_last_time_edited($last_time_edited);
+
+            $userEditing = $_POST['userLoggedIn'];
+            $miscNotes->set_user_editing($userEditing);
+
+            Datahandler::insert_notes($miscNotes->get_studentID(),$miscNotes->get_misc_notes(), $miscNotes->get_user_editing_info(), $miscNotes->get_last_time_edited());
+        }
+    }*/
 ?>

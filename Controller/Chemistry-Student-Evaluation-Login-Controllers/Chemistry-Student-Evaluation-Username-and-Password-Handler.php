@@ -1,24 +1,24 @@
 <?php
     session_start();
-    $error = "";  
+    $error = "";
     if (array_key_exists("logout", $_GET)) {
         unset($_SESSION);
         setcookie("id", "", time() - 60*60);
-        $_COOKIE["id"] = "";  
-        session_destroy();   
+        $_COOKIE["id"] = "";
+        session_destroy();
     } else if ((array_key_exists("id", $_SESSION) AND $_SESSION['id']) OR (array_key_exists("id", $_COOKIE) AND $_COOKIE['id'])) {
-        header("Location: Independent-Learning-Record-Main.php");
+        header("Location: Independent-Learning-Record-Main.php?action=none");
     }
-    if (array_key_exists("submit", $_POST)) {   
+    if (array_key_exists("submit", $_POST)) {
         include "Controller/DBConnection.php";
-        
+
         if (!$_POST['email']) {
             $error .= "An email address is required<br>";
-        } 
-        if (!$_POST['password']) {  
+        }
+        if (!$_POST['password']) {
             $error .= "A password is required<br>";
-        } 
-        if ($error != "") {  
+        }
+        if ($error != "") {
             $error = "<p>There were error(s) in your form:</p>".$error;
         } else {
             if ($_POST['signUp'] == '1') {
@@ -38,11 +38,11 @@
                         $_SESSION['id'] = $id;
                         if ($_POST['stayLoggedIn'] == '1') {
                             setcookie("id", $id, time() + 60*60*24*365);
-                        } 
-                        header("Location: Independent-Learning-Record-Main.php");
+                        }
+                        header("Location: Independent-Learning-Record-Main.php?action=none");
                     }
-                } 
-            } else {  
+                }
+            } else {
                     $query = "SELECT * FROM `users` WHERE email = '".mysqli_real_escape_string($connection, $_POST['email'])."'";
                     $result = mysqli_query($connection, $query);
                     $row = mysqli_fetch_array($result);
@@ -52,8 +52,8 @@
                             $_SESSION['id'] = $row['id'];
                             if (isset($_POST['stayLoggedIn']) AND $_POST['stayLoggedIn'] == '1') {
                                 setcookie("id", $row['id'], time() + 60*60*24*365);
-                            } 
-                            header("Location: Independent-Learning-Record-Main.php");  
+                            }
+                            header("Location: Independent-Learning-Record-Main.php?action=none");
                         } else {
                             $error = "That email/password combination is not correct.";
                         }

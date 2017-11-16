@@ -52,7 +52,7 @@ function retrieveStudentInfoById(id) {
                 }
 
                 // Grab the Student_Notes from the Database
-                document.getElementById('notes').value = studentJson.Student_Notes;
+                //document.getElementById('notes').value = studentJson.Student_Notes;
 
                 // Grab the Student_Math_Placement from the Database
                 document.getElementById('mathPlacementResult').value = studentJson.Student_Math_Grade;
