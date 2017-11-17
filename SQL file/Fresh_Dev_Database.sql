@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 14, 2017 at 12:56 AM
+-- Generation Time: Nov 17, 2017 at 05:32 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -229,14 +229,23 @@ INSERT INTO `Instructor` (`InstructorID`, `InstructorName`, `InstructorTitle`) V
 DROP TABLE IF EXISTS `Misc_Notes`;
 CREATE TABLE IF NOT EXISTS `Misc_Notes` (
   `Misc_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Misc_Title` varchar(255) NOT NULL,
+  `Misc_Title` varchar(255) DEFAULT NULL,
   `Misc_Text` text NOT NULL,
   `Misc_Date` datetime NOT NULL,
-  `Misc_Author_ID` int(11) NOT NULL,
-  `Misc_Sudent_ID` int(11) NOT NULL,
-  `Misc_Parent_Entry_ID` int(11) NOT NULL,
+  `Misc_Student_ID` int(11) DEFAULT NULL,
+  `Misc_Author_ID` int(11) DEFAULT NULL,
   PRIMARY KEY (`Misc_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Misc_Notes`
+--
+
+INSERT INTO `Misc_Notes` (`Misc_ID`, `Misc_Title`, `Misc_Text`, `Misc_Date`, `Misc_Student_ID`, `Misc_Author_ID`) VALUES
+(1, NULL, 'fsafdsafasdf', '2017-11-14 23:22:45', 123456, NULL),
+(2, NULL, 'fdsafasdf', '2017-11-15 15:36:31', 123456, NULL),
+(3, NULL, 'Some notes about this student ID', '2017-11-17 15:47:56', 654321, NULL),
+(4, NULL, 'hey there', '2017-11-17 16:15:06', 131313, NULL);
 
 -- --------------------------------------------------------
 
@@ -292,7 +301,13 @@ CREATE TABLE IF NOT EXISTS `Student` (
 --
 
 INSERT INTO `Student` (`Student_ID`, `Student_Name`, `Student_Major`, `Student_Year`, `Student_Semester`, `Student_Date`, `Student_Photo`, `Student_Notes`, `Student_Math_Grade`, `Student_Athletics`, `Student_Housing_Status`, `Student_Honors`, `International_Student`) VALUES
-(123456, 'Johnny Nicholson', 'Computer_Science', '2017', 'Spring', '2017-11-13 18:49:57', 'Controller/Independent-Learning-Record-Controllers/Student-Photos/Johnny Nicholson/IMG_0468.JPG', '', 'A-', 'Cross Country', 'commuter', 'No', 'No');
+(123456, 'Johnny Nicholson', 'Computer_Science', '2017', 'Spring', '2017-11-15 15:35:14', '', '', 'A', 'no', 'resident', 'No', 'No'),
+(323232, 'New Tester', 'Chemistry', '2014', 'Fall', '2017-11-14 22:49:48', '', '', 'A', 'fdsf', 'commuter', 'No', 'No'),
+(555555, 'New Guy', 'Chemistry', '2014', 'Fall', '2017-11-14 20:27:00', '', '', 'A', 'no', 'commuter', 'No', 'No'),
+(654321, 'Andrew Leach', 'Computer_Science', '2017', 'Summer', '2017-11-17 16:08:49', '', '', 'B-', 'Cross Country', 'resident', 'No', 'Japan'),
+(666666, 'New Guy', 'Chemistry', '2014', 'Fall', '2017-11-14 20:28:36', '', '', 'A', 'no', 'commuter', 'No', 'No'),
+(777777, 'TEST', 'Chemistry', '2014', 'Fall', '2017-11-14 20:46:10', '', '', 'A', 'Football', 'commuter', 'No', 'Tiwan'),
+(989898, 'John Nich', 'Chemistry', '2014', 'Fall', '2017-11-15 17:20:29', '', '', 'B-', 'no', 'resident', 'No', 'No');
 
 -- --------------------------------------------------------
 
