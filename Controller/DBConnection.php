@@ -9,4 +9,5 @@
     if(!$connection) {
         die("Connection error: " . mysqli_error($connection));
     }
+    mysqli_select_db($connection, $dbName);
 ?>

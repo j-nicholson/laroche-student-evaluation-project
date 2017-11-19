@@ -4,12 +4,12 @@
         <link rel="stylesheet" type="text/css" href="CSS/ILRCSS.css">
         <title>ILR Form</title>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="JS/DisplayStudentProfilePicture.js"></script>
         <script src="JS/ShowOtherMajorField.js"></script>
         <script src="JS/RetrieveStudentInfoById.js"></script>
         <script src="JS/showOtherInternationalField.js"></script>
         <script src="JS/studentAthleticsDisplay.js"></script>
-
     </head>
     <body>
         <!-- top navigation -->

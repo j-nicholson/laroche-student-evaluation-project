@@ -19,7 +19,6 @@ function retrieveStudentInfoById(id) {
             // [this] refers to the newly created XMLHttpRequest object (xmlhttp)
             if(this.readyState == 4 && this.status == 200) {
                 var studentJson = JSON.parse(this.responseText);
-                var nonstudentJson = this.responseText;
 
                 // Grab the Student_Name from the Database
                 document.getElementById('studentName').value = studentJson.Student_Name;
@@ -50,9 +49,6 @@ function retrieveStudentInfoById(id) {
                     image.height ="200";
                     image.width ="200";
                 }
-
-                // Grab the Student_Notes from the Database
-                //document.getElementById('notes').value = studentJson.Student_Notes;
 
                 // Grab the Student_Math_Placement from the Database
                 document.getElementById('mathPlacementResult').value = studentJson.Student_Math_Grade;
@@ -90,6 +86,12 @@ function retrieveStudentInfoById(id) {
                   document.getElementById('intStudent').value = "Yes";
                   document.getElementById('otherInternationalText').innerHTML = 'If yes, your home country: <input id="OtherInternational" class="field-style" type="text" name="OtherInternational" value = "'+ studentJson.International_Student +'"required>';
                 }
+
+                // Grab the Student_ID from the Database
+                document.getElementById('miscNotesStudentId').value = studentJson.Student_ID;
+
+                // Grab the Misc_Text from the Database
+                //document.getElementById('miscNotes').value = studentJson.Misc_Text;
             }
         };
         // Open the xmlhttp GET Request and pass the student ID along as a variable in the URL
