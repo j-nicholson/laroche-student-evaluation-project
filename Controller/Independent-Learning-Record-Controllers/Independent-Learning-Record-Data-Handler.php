@@ -59,6 +59,11 @@
           mysqli_close($connection);
         }
 
+        public static function insert_user() // w/ parameters (whatever they may be)
+        {
+          # code...
+        }
+
         public static function secure_input($data) {
             $data = trim($data);
             $data = stripslashes($data);
