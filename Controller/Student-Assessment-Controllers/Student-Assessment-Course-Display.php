@@ -1,12 +1,12 @@
 <?php
-  
+
     if(isset($_POST["submitted"])){
-    
+
         include "Controller/DBConnection.php";
 
         $coursecode = $_POST["coursecode"];
         $ID = 'CourseID';
-        $query = "SELECT * FROM Course Inner Join Instructor On Course.InstructorID = Instructor.InstructorID WHERE '$coursecode' = $ID";    
+        $query = "SELECT * FROM Course Inner Join Instructor On Course.InstructorID = Instructor.InstructorID WHERE '$coursecode' = $ID";
         $result = mysqli_query($connection, $query) or die("error: $query");
 
         while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
@@ -16,4 +16,4 @@
         echo "<h4>";
         echo "<div style= 'text-align:center' ><label id='SLOs'>Student Learning Outcomes (SLOs) addressed in this course:</div></label><br>";
     }
-?> 
+?>

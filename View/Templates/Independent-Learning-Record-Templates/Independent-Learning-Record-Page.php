@@ -13,7 +13,6 @@
     <body>
         <!-- top navigation -->
         <?php
-              //we can use include or read file, stack overflow says use read file
               readfile("View/Templates/HTMLmodules/ILRTopNavigationPane.html");
         ?>
         <!-- END top navigation -->
