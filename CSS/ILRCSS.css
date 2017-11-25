@@ -46,3 +46,8 @@ div.tab button.active {
 textarea {
   resize: none;
 }
+
+#DataTableScroll {
+  height: 200px;
+  overflow-y: auto;
+}
