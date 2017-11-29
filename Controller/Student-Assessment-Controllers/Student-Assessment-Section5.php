@@ -5,9 +5,9 @@
         
     <form action="Student-Assessment-Main.php" method="post">
     <fieldset>
-    <legend>Course Assessment Form Section IV</legend>
+    <legend>Course Assessment Form Section V</legend>
          <br>  
-        <div style="text-align:center">Log of Mid-Semster Individual Student Performace and Evaluation: </div><br>
+        <div style="text-align:center">Log of End of Semster Individual Student Performace and Evaluation: </div><br>
         <table align = "center"  border = "1">
         <tr>
             <td><center>#<center></td>
