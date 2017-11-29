@@ -4,7 +4,9 @@
   <link rel = "stylesheet" href = "CSS/ILRCSS.css">
   <div id="Student-Misc-Notes-Form">
     <h1> Miscellaneous Notes </h1>
-    <table id="excelDataTable" border="1"></table>
+    <div id="DataTableScroll">
+      <table id="excelDataTable" border="1"></table>
+    </div>
     <script src="JS/retrieveStudentNotesById.js"></script>
     <h5>Create new post:</h5>
     <form name="submitNotesForm" method="post" action="Independent-Learning-Record-Main.php?action=submitStudentNotes">
