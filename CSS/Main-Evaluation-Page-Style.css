@@ -125,4 +125,8 @@ label#SLOs ~ span {
   display: inline-block;
   width: 180px;
   vertical-align: middle;
+
+}
+fieldset{
+	text-align: center;
 }

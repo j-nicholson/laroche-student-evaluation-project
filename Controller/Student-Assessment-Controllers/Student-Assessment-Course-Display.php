@@ -1,7 +1,8 @@
 <?php
+	session_start();
 
     if(isset($_POST["submitted"])){
-
+        
         include "Controller/DBConnection.php";
 
         $coursecode = $_POST["coursecode"];

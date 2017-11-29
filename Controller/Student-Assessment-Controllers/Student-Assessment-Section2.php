@@ -24,11 +24,11 @@
 			<td><center>%F<center></td>
 		<tr>
 	        <tr>
-			<td><input type="text" size = "5" NAME="Apercent" /></td>
-			<td><input type="text" size = "5" NAME="Bpercent" /></td>
-			<td><input type="text" size = "5" NAME="Cpercent" /></td>
-			<td><input type="text" size = "5" NAME="Dpercent" /></td>
-			<td><input type="text" size = "5" NAME="Fpercent" /></td>
+			<td><input type="text" id="gradeA" size = "5" NAME="Apercent" value="0"/></td>
+			<td><input type="text" id="gradeB" size = "5" NAME="Bpercent" value="0"/></td>
+			<td><input type="text" id="gradeC" size = "5" NAME="Cpercent" value="0"/></td>
+			<td><input type="text" id="gradeD" size = "5" NAME="Dpercent" value="0"/></td>
+			<td><input type="text" id="gradeF" size = "5" NAME="Fpercent" value="0"/></td>
 			</tr>
                 </table>
 			<br>
