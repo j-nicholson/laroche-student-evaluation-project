@@ -20,8 +20,8 @@
 <body>
     <script type="text/javascript" src="JS/SubmitSLOInformation.js"></script>
     <div class="Top-Navigation-Pane">
-        <a href="Independent-Learning-Record-Main.php">Independent Learning Record</a>
-        <a href="Student-Assessment-Main.php">Assessment Form</a>
+        <a href="Independent-Learning-Record-Main.php?action=none">Independent Learning Record</a>
+        <a href="Student-Assessment-Main.php?action=none">Assessment Form</a>
         <a class="logOut" href="Chemistry-Student-Evaluation-Login-Main.php?logout=1">Logout</a>
     </div>
     <img src="https://laroche.edu/img/logo.png" alt="Logo" style="width:300px;height:80px;">
