@@ -4,7 +4,6 @@ function retrieveStudentNotesById(id) {
   if(id !== previousStudent) {
     previousStudent = id;
     ranAlready = false;
-    console.log("Got into previousStudent");
     var notesTable = document.getElementById('excelDataTable');
     while(notesTable.firstChild){
       notesTable.removeChild(notesTable.firstChild);
