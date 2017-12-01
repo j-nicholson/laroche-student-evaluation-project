@@ -4,7 +4,7 @@
       private $miscTitle;
       private $miscText;
       private $miscDate;
-      private $miscAuthorID;
+      private $miscAuthorName;
       private $miscStudentID;
 
       public function setMiscID($miscID) {
@@ -23,8 +23,8 @@
         $this->miscDate = $miscDate;
       }
 
-      public function setMiscAuthorID($miscAuthorID) {
-        $this->miscAuthorID = $miscAuthorID;
+      public function setMiscAuthorName($miscAuthorName) {
+        $this->miscAuthorName = $miscAuthorName;
       }
 
       public function setMiscStudentID($miscStudentID) {
@@ -47,8 +47,8 @@
         return $this->miscDate;
       }
 
-      public function getMiscAuthorID() {
-        return $this->miscAuthorID;
+      public function getMiscAuthorName() {
+        return $this->miscAuthorName;
       }
 
       public function getMiscStudentID() {

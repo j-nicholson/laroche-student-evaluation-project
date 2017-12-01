@@ -2,7 +2,7 @@
   $id = intval($_GET['id']);
   include "../DBConnection.php";
 
-  $query = "SELECT Student_ID, Student_Name, Misc_Date, Misc_Text FROM Student INNER JOIN Misc_Notes ON Misc_Notes.Misc_Student_ID = Student.Student_ID WHERE Student_ID = '" . $id . "' ORDER BY Misc_Date DESC";
+  $query = "SELECT Student_ID, Student_Name, Misc_Date, Misc_Text, Misc_Author_Name FROM Student INNER JOIN Misc_Notes ON Misc_Notes.Misc_Student_ID = Student.Student_ID WHERE Student_ID = '" . $id . "' ORDER BY Misc_Date DESC";
   $result = mysqli_query($connection, $query);
 
   $returned_notes = array();

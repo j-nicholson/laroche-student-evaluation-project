@@ -1,16 +1,17 @@
-<?php 
+<?php
     include ("Controller/Chemistry-Student-Evaluation-Login-Controllers/Chemistry-Student-Evaluation-Username-and-Password-Handler.php");
-    include ("Chemistry-Student-Evaluation-Login-Header.php"); 
+    include ("Chemistry-Student-Evaluation-Login-Header.php");
 ?>
+<script src="JS/ReplaceURLState.js"></script>
 <div class="container" id="homePageContainer">
           <title>Chemistry Learning System</title>
-          
+
           <p><strong>Chemistry Department Student Learning System</strong></p>
           <p><strong>Welcome back</strong></p>
-          
+
           <div id="error"><?php if ($error!="") {
     echo '<div class="alert alert-danger" role="alert">'.$error.'</div>';
-    
+
 } ?></div>
 
     <form method="post" id = "signUpForm">
