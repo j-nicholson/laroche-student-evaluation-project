@@ -10,8 +10,10 @@
         $studentNote->setMiscStudentID($secure_id);
         $secure_text = DataHandler::secure_input($_POST['miscNotes']);
         $studentNote->setMiscText($secure_text);
+        $secure_NoteAuthor = DataHandler::secure_input($_SESSION['userLoginName']);
+        $studentNote->setMiscAuthorName($secure_NoteAuthor);
 
-        Datahandler::insert_notes($studentNote->getMiscStudentID(), $studentNote->getMiscText(), $studentNote->getMiscDate());
+        Datahandler::insert_notes($studentNote->getMiscStudentID(), $studentNote->getMiscText(), $studentNote->getMiscDate(), $studentNote->getMiscAuthorName());
       }
     }
   }

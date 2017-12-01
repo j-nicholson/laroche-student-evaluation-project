@@ -36,6 +36,7 @@
                         $id = mysqli_insert_id($connection);
                         mysqli_query($connection, $query);
                         $_SESSION['id'] = $id;
+                        $_SESSION['userLoginName'] = $_POST['email'];
                         if ($_POST['stayLoggedIn'] == '1') {
                             setcookie("id", $id, time() + 60*60*24*365);
                         }
@@ -50,6 +51,7 @@
                         $hashedPassword = md5(md5($row['id']).$_POST['password']);
                         if ($hashedPassword == $row['password']) {
                             $_SESSION['id'] = $row['id'];
+                            $_SESSION['userLoginName'] = $row['email'];
                             if (isset($_POST['stayLoggedIn']) AND $_POST['stayLoggedIn'] == '1') {
                                 setcookie("id", $row['id'], time() + 60*60*24*365);
                             }

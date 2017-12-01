@@ -45,13 +45,14 @@
         }
 
         // Insertion for Student_Notes
-        public static function insert_notes($miscId, $miscText, $miscDate) {
+        public static function insert_notes($miscId, $miscText, $miscDate, $miscAuthor) {
           include "Controller/DBConnection.php";
           $sec_miscId = mysqli_real_escape_string($connection, $miscId);
           $sec_miscText = mysqli_real_escape_string($connection, $miscText);
           $sec_miscDate = mysqli_real_escape_string($connection, $miscDate);
+          $sec_miscAuthor = mysqli_real_escape_string($connection, $miscAuthor);
 
-          $query = "INSERT INTO Misc_Notes (Misc_Text, Misc_Date, Misc_Student_ID) VALUES ('$sec_miscText', '$sec_miscDate', '$sec_miscId')";
+          $query = "INSERT INTO Misc_Notes (Misc_Text, Misc_Date, Misc_Student_ID, Misc_Author_Name) VALUES ('$sec_miscText', '$sec_miscDate', '$sec_miscId', '$sec_miscAuthor')";
           $result = mysqli_query($connection, $query);
           if(!$result) {
             die("Notes insertion failed: " . mysqli_error($connection));
