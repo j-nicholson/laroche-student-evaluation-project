@@ -1,3 +1,6 @@
 var history = window.history;
-var newURL = "Capstone_Development_Master/Chemistry-Student-Evaluation-Login-Main.php";
-history.replaceState(null, null, "/" + newURL);
+
+var url = window.location.href;
+var baseURL = url.split("?")[0];
+var parseURL = baseURL.replace("http://localhost/", "");
+history.replaceState(null, null, "/" + parseURL);
