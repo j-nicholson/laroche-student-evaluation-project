@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 01, 2017 at 09:39 PM
+-- Generation Time: Dec 05, 2017 at 04:37 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -264,40 +264,23 @@ INSERT INTO `Instructor` (`InstructorID`, `InstructorName`, `InstructorTitle`) V
 DROP TABLE IF EXISTS `Misc_Notes`;
 CREATE TABLE IF NOT EXISTS `Misc_Notes` (
   `Misc_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Misc_Text` text NOT NULL,
-  `Misc_Date` datetime NOT NULL,
-  `Misc_Student_ID` int(11) DEFAULT NULL,
-  `Misc_Author_Name` varchar(255) NOT NULL,
+  `Notes` text,
+  `Date` datetime DEFAULT NULL,
+  `Author` varchar(255) DEFAULT NULL,
+  `Student_ID` int(6) DEFAULT NULL,
   PRIMARY KEY (`Misc_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `Misc_Notes`
 --
 
-INSERT INTO `Misc_Notes` (`Misc_ID`, `Misc_Text`, `Misc_Date`, `Misc_Student_ID`, `Misc_Author_Name`) VALUES
-(1, 'fsafdsafasdf', '2017-11-14 23:22:45', 123456, ''),
-(2, 'fdsafasdf', '2017-11-15 15:36:31', 123456, ''),
-(3, 'Some notes about this student ID', '2017-11-17 15:47:56', 654321, ''),
-(4, 'hey there', '2017-11-17 16:15:06', 131313, ''),
-(5, 'fsa', '2017-11-19 18:48:55', 123456, ''),
-(6, 'A new note has been added', '2017-11-19 22:11:23', 123456, ''),
-(7, 'New note', '2017-11-19 22:15:58', 654321, ''),
-(8, 'latest note', '2017-11-19 22:16:26', 654321, ''),
-(9, 'New entry', '2017-11-20 21:36:49', 123456, ''),
-(10, 'Another new entry', '2017-11-20 21:37:12', 123456, ''),
-(11, 'New stuff', '2017-11-20 21:38:32', 123456, ''),
-(12, 'This note was added with the most recent post at the top of the list.', '2017-11-26 02:04:39', 123456, ''),
-(13, 'This is a new post', '2017-11-27 21:38:35', 654321, ''),
-(14, 'The student has improved on test scores.', '2017-11-29 15:58:31', 123456, ''),
-(15, 'This student got an A on his final.', '2017-11-29 22:20:48', 121212, ''),
-(16, 'This student is awesome.', '2017-11-29 22:21:51', 545454, ''),
-(17, 'This student is now less awesome.', '2017-11-29 22:22:40', 545454, ''),
-(18, 'This student received an A on their paper.', '2017-12-01 20:54:49', 123456, ''),
-(19, 'This student got a B.', '2017-12-01 20:58:47', 123456, 'johnfnicholson123@gmail.com'),
-(20, 'This student is awesome.', '2017-12-01 21:29:21', 123456, 'johnfnicholson123@gmail.com'),
-(21, 'New account', '2017-12-01 21:32:25', 123456, 'newaccount@new.com'),
-(22, 'new stuff from new account', '2017-12-01 21:32:49', 654321, 'newaccount@new.com');
+INSERT INTO `Misc_Notes` (`Misc_ID`, `Notes`, `Date`, `Author`, `Student_ID`) VALUES
+(26, 'A new note', '2017-12-05 03:43:27', 'johnfnicholson123@gmail.com', 123456),
+(27, 'another note', '2017-12-05 04:02:05', 'johnfnicholson123@gmail.com', 123456),
+(28, 'fdsaf', '2017-12-05 04:02:15', 'johnfnicholson123@gmail.com', 123456),
+(29, 'fdafsfa', '2017-12-05 04:02:24', 'johnfnicholson123@gmail.com', 123456),
+(30, 'This note is longer in order to test how the styling is effected by it. Hopefully this works correctly when posted or at least looks good.', '2017-12-05 04:23:33', 'johnfnicholson123@gmail.com', 123456);
 
 -- --------------------------------------------------------
 
@@ -352,12 +335,13 @@ CREATE TABLE IF NOT EXISTS `Student` (
 --
 
 INSERT INTO `Student` (`Student_ID`, `Student_Name`, `Student_Major`, `Student_Year`, `Student_Semester`, `Student_Date`, `Student_Photo`, `Student_Math_Grade`, `Student_Athletics`, `Student_Housing_Status`, `Student_Honors`, `International_Student`) VALUES
+(0, 'Johnny Nicholson', 'Chemistry', '2017', 'Spring', '2017-12-04 19:06:20', '', 'B', 'no', 'resident', 'No', 'No'),
 (121212, 'New Guy', 'Chemistry', '2014', 'Fall', '2017-11-29 22:20:29', '', 'A', 'no', 'commuter', 'No', 'No'),
-(123456, 'Johnny Nicholson', 'Computer_Science', '2017', 'Spring', '2017-11-15 15:35:14', '', 'A', 'no', 'resident', 'No', 'No'),
+(123456, 'Johnny Nicholson', 'Biochemistry', '2016', 'Summer', '2017-12-04 23:31:30', '', 'B+', 'no', 'resident', 'Yes', 'No'),
 (323232, 'New Tester', 'Chemistry', '2014', 'Fall', '2017-11-14 22:49:48', '', 'A', 'fdsf', 'commuter', 'No', 'No'),
 (545454, 'Steven Foster', 'Chemistry', '2014', 'Fall', '2017-11-29 22:21:32', '', 'A', 'no', 'commuter', 'No', 'Cross Country'),
 (555555, 'New Guy', 'Chemistry', '2014', 'Fall', '2017-11-14 20:27:00', '', 'A', 'no', 'commuter', 'No', 'No'),
-(654321, 'Andrew Leach', 'Computer_Science', '2017', 'Summer', '2017-11-17 16:08:49', '', 'B-', 'Cross Country', 'resident', 'No', 'Japan'),
+(654321, 'Andrew Leach', 'Biochemistry', '2016', 'Spring', '2017-12-04 23:37:34', '', 'A', 'no', 'commuter', 'No', 'No'),
 (666666, 'New Guy', 'Chemistry', '2014', 'Fall', '2017-11-14 20:28:36', '', 'A', 'no', 'commuter', 'No', 'No'),
 (777777, 'TEST', 'Chemistry', '2014', 'Fall', '2017-11-14 20:46:10', '', 'A', 'Football', 'commuter', 'No', 'Tiwan'),
 (989898, 'John Nich', 'Chemistry', '2014', 'Fall', '2017-11-15 17:20:29', '', 'B-', 'no', 'resident', 'No', 'No');
@@ -374,7 +358,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -385,7 +369,8 @@ INSERT INTO `users` (`id`, `email`, `password`) VALUES
 (4, 'test@test.com', 'f5183be9aa9e17875c6994340f0c738c'),
 (5, 'johnfnicholson123@gmail.com', '0210d7b9161eabe72bc4e5789c6243f8'),
 (6, 'anotherdude@test.com', '220f06a64abb879538c7a805e3f0d116'),
-(7, 'newaccount@new.com', '909d9ac85cd90b022644c495a6d7d181');
+(7, 'newaccount@new.com', '909d9ac85cd90b022644c495a6d7d181'),
+(8, 'new@new.com', '5d0a8818287329f50362ca1283691079');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
