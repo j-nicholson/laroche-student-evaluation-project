@@ -20,36 +20,36 @@
 			<td><input type="text" size = "5" NAME="Section4Num[]" /></td>
 			<td><input type="text" size = "5" NAME="IDNum[]" /></td>
 			<td><input type="text" size = "13" NAME="LearningIssue[]" /></td>
-			<td><input type="text" size = "30" NAME="ExtentInstructor[]" /></td>
-			<td><input type="text" size = "32" NAME="InstructorRecommendations[]" /></td>
+			<td><textarea NAME="ExtentInstructor[]"style="width: 350px; height: 75px"></textarea></td>
+			<td><textarea NAME="InstructorRecommendations[]"style="width: 350px; height: 75px"></textarea></td>
 			</tr>
             <tr>
 			<td><input type="text" size = "5" NAME="Section4Num[]" /></td>
 			<td><input type="text" size = "5" NAME="IDNum[]" /></td>
 			<td><input type="text" size = "13" NAME="LearningIssue[]" /></td>
-			<td><input type="text" size = "30" NAME="ExtentInstructor[]" /></td>
-			<td><input type="text" size = "32" NAME="InstructorRecommendations[]" /></td>
+			<td><textarea NAME="ExtentInstructor[]"style="width: 350px; height: 75px"></textarea></td>
+			<td><textarea NAME="InstructorRecommendations[]"style="width: 350px; height: 75px"></textarea></td>
 			</tr>
             <tr>
             <td><input type="text" size = "5" NAME="Section4Num[]" /></td>
 			<td><input type="text" size = "5" NAME="IDNum[]" /></td>
 			<td><input type="text" size = "13" NAME="LearningIssue[]" /></td>
-			<td><input type="text" size = "30" NAME="ExtentInstructor[]" /></td>
-			<td><input type="text" size = "32" NAME="InstructorRecommendations[]" /></td>
+			<td><textarea NAME="ExtentInstructor[]"style="width: 350px; height: 75px"></textarea></td>
+			<td><textarea NAME="InstructorRecommendations[]"style="width: 350px; height: 75px"></textarea></td>
 			</tr>
              <tr>
             <td><input type="text" size = "5" NAME="Section4Num[]" /></td>
 			<td><input type="text" size = "5" NAME="IDNum[]" /></td>
 			<td><input type="text" size = "13" NAME="LearningIssue[]" /></td>
-			<td><input type="text" size = "30" NAME="ExtentInstructor[]" /></td>
-			<td><input type="text" size = "32" NAME="InstructorRecommendations[]" /></td>
+			<td><textarea NAME="ExtentInstructor[]"style="width: 350px; height: 75px"></textarea></td>
+			<td><textarea NAME="InstructorRecommendations[]"style="width: 350px; height: 75px"></textarea></td>
 			</tr>
             <tr>
             <td><input type="text" size = "5" NAME="Section4Num[]" /></td>
 			<td><input type="text" size = "5" NAME="IDNum[]" /></td>
 			<td><input type="text" size = "13" NAME="LearningIssue[]" /></td>
-			<td><input type="text" size = "30" NAME="ExtentInstructor[]" /></td>
-			<td><input type="text" size = "32" NAME="InstructorRecommendations[]" /></td>
+			<td><textarea NAME="ExtentInstructor[]"style="width: 350px; height: 75px"></textarea></td>
+			<td><textarea NAME="InstructorRecommendations[]"style="width: 350px; height: 75px"></textarea></td>
 			</tr>
                 </table>
 			<br>
