@@ -51,3 +51,19 @@ textarea {
   height: 200px;
   overflow-y: auto;
 }
+
+#excelDataTable {
+  border-collapse: collapse;
+}
+
+td {
+  border: 1px solid #000;
+  vertical-align: middle;
+  border-spacing: inherit;
+}
+
+tr {
+  border: 1px solid #000;
+  vertical-align: text-top;
+  white-space: nowrap;
+}

@@ -3,6 +3,7 @@
 ?>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="CSS/Main-Evaluation-Page-Style.css">
         <link rel="stylesheet" type="text/css" href="CSS/ILRCSS.css">
         <title>ILR Form</title>
@@ -13,6 +14,7 @@
         <script src="JS/RetrieveStudentInfoById.js"></script>
         <script src="JS/showOtherInternationalField.js"></script>
         <script src="JS/studentAthleticsDisplay.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
         <!-- top navigation -->

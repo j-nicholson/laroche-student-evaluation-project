@@ -52,7 +52,7 @@
           $sec_miscDate = mysqli_real_escape_string($connection, $miscDate);
           $sec_miscAuthor = mysqli_real_escape_string($connection, $miscAuthor);
 
-          $query = "INSERT INTO Misc_Notes (Misc_Text, Misc_Date, Misc_Student_ID, Misc_Author_Name) VALUES ('$sec_miscText', '$sec_miscDate', '$sec_miscId', '$sec_miscAuthor')";
+          $query = "INSERT INTO Misc_Notes (Misc_Notes.Notes, Misc_Notes.Date, Misc_Notes.Author, Misc_Notes.Student_ID) VALUES ('$sec_miscText', '$sec_miscDate', '$sec_miscAuthor', '$sec_miscId')";
           $result = mysqli_query($connection, $query);
           if(!$result) {
             die("Notes insertion failed: " . mysqli_error($connection));
