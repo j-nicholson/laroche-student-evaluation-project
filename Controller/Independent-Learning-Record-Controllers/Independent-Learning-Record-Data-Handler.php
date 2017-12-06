@@ -3,7 +3,6 @@
         // Insertion for Student_Info
         public static function insert_student($student_ID, $student_name, $student_major, $student_year, $student_semester, $student_photo, $student_date, $student_Math_Grade, $student_Athletics,$student_Housing_Status,$student_Honors_Institute,$student_International_Student) {
             include "Controller/DBConnection.php";
-
             $sec_student_ID = mysqli_real_escape_string($connection, $student_ID);
             $sec_student_name = mysqli_real_escape_string($connection, $student_name);
             $sec_student_major = mysqli_real_escape_string($connection, $student_major);
@@ -14,7 +13,19 @@
             $sec_student_Housing_Status = mysqli_real_escape_string($connection, $student_Housing_Status);
             $sec_student_Honors_Institute = mysqli_real_escape_string($connection, $student_Honors_Institute);
             $sec_student_International_Student = mysqli_real_escape_string($connection, $student_International_Student);
+            //check for blank photo update
+            if($student_photo == ""){
+              //greb old photo
+              $photo_retreive = "SELECT Student_Photo FROM Student WHERE Student_ID = '$sec_student_ID'";
+              $photo_query = mysqli_query($connection, $photo_retreive);
+              if(!$photo_query) {
+                  die("Query failed on photo retreival: " . mysqli_error($connection));
+              }
+              while($row = mysqli_fetch_assoc($photo_query)) {
+                $student_photo = $row['Student_Photo'];
+              }
 
+            }
 
             $query = "INSERT INTO Student (Student_ID, Student_Name, Student_Major, Student_Year, Student_Semester, Student_Date, Student_Photo, Student_Math_Grade, Student_Athletics, Student_Housing_Status, Student_Honors, International_Student) VALUES ('$sec_student_ID', '$sec_student_name', '$sec_student_major', '$sec_student_year', '$sec_student_semester', '$student_date', '$student_photo', '$sec_student_Math_Grade', '$sec_student_Athletics', '$sec_student_Housing_Status', '$sec_student_Honors_Institute', '$sec_student_International_Student')";
 
