@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 05, 2017 at 04:37 AM
+-- Generation Time: Dec 07, 2017 at 12:25 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -102,7 +102,11 @@ INSERT INTO `Course_Assessment_Form_Section_1` (`CAFS1ID`, `NewSLOs`, `Upgrades`
 ('CHEM2016-SPR2017', 0x37363538373635383736, 0x3736383736383937363839, 0x3738363938373639383736, 0x37363938373639383736, 0x38373039383736303837363837),
 ('CSCI4098-SPR2017', 0x6666647361, 0x66647361, 0x66647361, 0x66647361, 0x66647361),
 ('CSCI4098-SPR2017', '', '', '', '', ''),
-('MATH2050-SPR2017', '', '', '', '', '');
+('MATH2050-SPR2017', '', '', '', '', ''),
+('MATH2050-SPR2017', '', '', '', '', ''),
+('CHEM2016-SPR2017', '', '', '', '', ''),
+('CHEM2016-SPR2017', '', '', '', '', ''),
+('CHEM2016-SPR2017', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -131,7 +135,11 @@ INSERT INTO `Course_Assessment_Form_Section_2` (`ChemConcept`, `ObjectivesConten
 (0x6664, 0x7666647361, 0x66647361, '1', '1', '1', '1', '1'),
 (0x6664, 0x6664666461, 0x66647361, '1', '2', '', '2', ''),
 ('', '', '', '', '', '', '', ''),
-('', '', '', '', '', '', '', '');
+('', '', '', '', '', '', '', ''),
+('', '', '', '3', '2', '0', '0', '0'),
+('', '', '', '0', '0', '0', '0', '0'),
+('', '', '', '0', '0', '0', '0', '0'),
+('', '', '', '0', '0', '0', '0', '0');
 
 -- --------------------------------------------------------
 
@@ -159,6 +167,10 @@ INSERT INTO `Course_Assessment_Form_Section_3` (`CoursePreReq`, `Textbooks`, `St
 (0x66646173, 0x66646173, 0x66646173, 0x66647361, 0x66646173, '', ''),
 (0x66646173, 0x66647361, 0x66647361, 0x66647361, '', 0x66646173, 0x66647361),
 ('', '', '', '', '', '', ''),
+('', '', '', '', '', '', ''),
+('', '', '', '', '', '', ''),
+('', '', '', '', '', '', ''),
+('', '', '', '', '', '', ''),
 ('', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
@@ -176,6 +188,32 @@ CREATE TABLE IF NOT EXISTS `Course_Assessment_Form_Section_4` (
   `InstructorRecommendations` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `Course_Assessment_Form_Section_4`
+--
+
+INSERT INTO `Course_Assessment_Form_Section_4` (`Sec4Num`, `IDNum`, `LearningIssue`, `ExtentInstructor`, `InstructorRecommendations`) VALUES
+(0, 0, '', '', ''),
+(0, 0, '', '', ''),
+(0, 0, '', '', ''),
+(0, 0, '', '', ''),
+(0, 0, '', '', ''),
+(0, 0, '', '', ''),
+(0, 0, '', '', ''),
+(0, 0, '', '', ''),
+(0, 0, '', '', ''),
+(0, 0, '', '', ''),
+(0, 0, '', '', ''),
+(0, 0, '', '', ''),
+(0, 0, '', '', ''),
+(0, 0, '', '', ''),
+(0, 0, '', '', ''),
+(0, 0, '', '', ''),
+(0, 0, '', '', ''),
+(0, 0, '', '', ''),
+(0, 0, '', '', ''),
+(0, 0, '', '', '');
+
 -- --------------------------------------------------------
 
 --
@@ -191,6 +229,58 @@ CREATE TABLE IF NOT EXISTS `Course_Assessment_Form_Section_5` (
   `ExtentInstructorInt` longblob NOT NULL,
   `InstructorEvalRecommendations` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Course_Assessment_Form_Section_5`
+--
+
+INSERT INTO `Course_Assessment_Form_Section_5` (`Sec5Num`, `IDNum`, `Grade`, `LearningIssue`, `ExtentInstructorInt`, `InstructorEvalRecommendations`) VALUES
+(1, 123456, 'A', '1', '', ''),
+(2, 234567, 'A', '1', '', ''),
+(3, 345678, 'B', '2', '', ''),
+(4, 456789, 'A', '2', '', ''),
+(5, 567890, 'B', '3', '', ''),
+(0, 0, '', '', '', ''),
+(0, 0, '', '', '', ''),
+(0, 0, '', '', '', ''),
+(0, 0, '', '', '', ''),
+(0, 0, '', '', '', ''),
+(0, 0, '', '', '', ''),
+(0, 0, '', '', '', ''),
+(0, 0, '', '', '', ''),
+(0, 0, '', '', '', ''),
+(0, 0, '', '', '', ''),
+(0, 0, '', '', '', ''),
+(0, 0, '', '', '', ''),
+(0, 0, '', '', '', ''),
+(0, 0, '', '', '', ''),
+(0, 0, '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course_assessment_review_section`
+--
+
+DROP TABLE IF EXISTS `course_assessment_review_section`;
+CREATE TABLE IF NOT EXISTS `course_assessment_review_section` (
+  `ReviewID` int(11) NOT NULL,
+  `DepReview` longblob NOT NULL,
+  `DepReviewer` longblob NOT NULL,
+  `NewActPlan` longblob NOT NULL,
+  `NewBudgItem` longblob NOT NULL,
+  `DivChairReview` longblob NOT NULL,
+  `DivChairSig` longblob NOT NULL,
+  `DivChairRevDate` longblob NOT NULL,
+  PRIMARY KEY (`ReviewID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `course_assessment_review_section`
+--
+
+INSERT INTO `course_assessment_review_section` (`ReviewID`, `DepReview`, `DepReviewer`, `NewActPlan`, `NewBudgItem`, `DivChairReview`, `DivChairSig`, `DivChairRevDate`) VALUES
+(11111, 0x667364616673, 0x666473, 0x6664736166, 0x6664736166736166617366, 0x666473, 0x666461736661736466736466, 0x31322f30362f3137);
 
 -- --------------------------------------------------------
 
@@ -215,9 +305,11 @@ CREATE TABLE IF NOT EXISTS `Course_SLOs` (
 --
 
 INSERT INTO `Course_SLOs` (`CourseSLOID`, `CourseID`, `SLO1`, `SLO2`, `SLO3`, `SLO4`, `SLO5`) VALUES
+(181228, 'CHEM2016', 'false', 'false', 'false', 'false', 'false'),
 (213574, 'CHEM2016', 'false', 'true', 'true', 'true', 'false'),
 (225564, '04', 'false', 'true', 'true', 'false', 'false'),
 (247549, 'MATH2050', 'false', 'true', 'true', 'false', 'false'),
+(298739, 'CHEM2016', 'false', 'false', 'false', 'false', 'false'),
 (387684, '', 'false', 'true', 'true', 'false', 'false'),
 (401212, 'CHEM2016', 'false', 'true', 'true', 'false', 'false'),
 (498443, 'MATH2050', 'true', 'true', 'false', 'false', 'false'),
@@ -227,6 +319,8 @@ INSERT INTO `Course_SLOs` (`CourseSLOID`, `CourseID`, `SLO1`, `SLO2`, `SLO3`, `S
 (649302, 'CSCI4098', 'false', 'true', 'true', 'false', 'false'),
 (705848, 'MATH2050', 'false', 'true', 'true', 'false', 'false'),
 (772739, 'MATH2050', 'true', 'true', 'false', 'false', 'false'),
+(800701, 'CHEM2016', 'false', 'false', 'false', 'false', 'false'),
+(824286, 'MATH2050', 'false', 'false', 'false', 'false', 'false'),
 (835938, 'CSCI4098', 'false', 'true', 'true', 'false', 'false'),
 (837367, '', 'true', 'true', 'false', 'false', 'false'),
 (928525, 'CSCI4098', 'false', 'true', 'true', 'false', 'false');
@@ -269,7 +363,7 @@ CREATE TABLE IF NOT EXISTS `Misc_Notes` (
   `Author` varchar(255) DEFAULT NULL,
   `Student_ID` int(6) DEFAULT NULL,
   PRIMARY KEY (`Misc_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `Misc_Notes`
@@ -280,7 +374,8 @@ INSERT INTO `Misc_Notes` (`Misc_ID`, `Notes`, `Date`, `Author`, `Student_ID`) VA
 (27, 'another note', '2017-12-05 04:02:05', 'johnfnicholson123@gmail.com', 123456),
 (28, 'fdsaf', '2017-12-05 04:02:15', 'johnfnicholson123@gmail.com', 123456),
 (29, 'fdafsfa', '2017-12-05 04:02:24', 'johnfnicholson123@gmail.com', 123456),
-(30, 'This note is longer in order to test how the styling is effected by it. Hopefully this works correctly when posted or at least looks good.', '2017-12-05 04:23:33', 'johnfnicholson123@gmail.com', 123456);
+(30, 'This note is longer in order to test how the styling is effected by it. Hopefully this works correctly when posted or at least looks good.', '2017-12-05 04:23:33', 'johnfnicholson123@gmail.com', 123456),
+(31, 'new note', '2017-12-06 21:50:48', 'johnfnicholson123@gmail.com', 123456);
 
 -- --------------------------------------------------------
 
@@ -337,11 +432,11 @@ CREATE TABLE IF NOT EXISTS `Student` (
 INSERT INTO `Student` (`Student_ID`, `Student_Name`, `Student_Major`, `Student_Year`, `Student_Semester`, `Student_Date`, `Student_Photo`, `Student_Math_Grade`, `Student_Athletics`, `Student_Housing_Status`, `Student_Honors`, `International_Student`) VALUES
 (0, 'Johnny Nicholson', 'Chemistry', '2017', 'Spring', '2017-12-04 19:06:20', '', 'B', 'no', 'resident', 'No', 'No'),
 (121212, 'New Guy', 'Chemistry', '2014', 'Fall', '2017-11-29 22:20:29', '', 'A', 'no', 'commuter', 'No', 'No'),
-(123456, 'Johnny Nicholson', 'Biochemistry', '2016', 'Summer', '2017-12-04 23:31:30', '', 'B+', 'no', 'resident', 'Yes', 'No'),
+(123456, 'Johnny Nicholson', 'Chemistry', '2015', 'Summer', '2017-12-06 21:50:29', 'Controller/Independent-Learning-Record-Controllers/Student-Photos/Johnny Nicholson/IMG_1209.JPG', 'B+', 'no', 'resident', 'Yes', 'No'),
 (323232, 'New Tester', 'Chemistry', '2014', 'Fall', '2017-11-14 22:49:48', '', 'A', 'fdsf', 'commuter', 'No', 'No'),
 (545454, 'Steven Foster', 'Chemistry', '2014', 'Fall', '2017-11-29 22:21:32', '', 'A', 'no', 'commuter', 'No', 'Cross Country'),
 (555555, 'New Guy', 'Chemistry', '2014', 'Fall', '2017-11-14 20:27:00', '', 'A', 'no', 'commuter', 'No', 'No'),
-(654321, 'Andrew Leach', 'Biochemistry', '2016', 'Spring', '2017-12-04 23:37:34', '', 'A', 'no', 'commuter', 'No', 'No'),
+(654321, 'Andrew Leach', 'Biochemistry', '2016', 'Spring', '2017-12-06 17:51:55', 'Controller/Independent-Learning-Record-Controllers/Student-Photos/Andrew Leach/IMG_1158.JPG', 'A', 'no', 'commuter', 'No', 'No'),
 (666666, 'New Guy', 'Chemistry', '2014', 'Fall', '2017-11-14 20:28:36', '', 'A', 'no', 'commuter', 'No', 'No'),
 (777777, 'TEST', 'Chemistry', '2014', 'Fall', '2017-11-14 20:46:10', '', 'A', 'Football', 'commuter', 'No', 'Tiwan'),
 (989898, 'John Nich', 'Chemistry', '2014', 'Fall', '2017-11-15 17:20:29', '', 'B-', 'no', 'resident', 'No', 'No');
