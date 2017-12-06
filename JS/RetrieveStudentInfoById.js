@@ -39,6 +39,10 @@ function retrieveStudentInfoById(id) {
                 // Grab the Student_Date from the Database
                 document.getElementById('Date-Last-Updated').innerHTML = '<p>Last Updated: ' + studentJson.Student_Date + '</p>';
 
+                //BAD
+                // Grab the Student_Photo from the Database
+                //document.getElementById('picture').value = studentJson.Student_Photo;
+
                 // Grab the Student_Photo from the Database and check to see if the image should be displayed or not
                 let image = document.getElementById("Updated-Student-Profile-Image");
                 let imgurl = studentJson.Student_Photo;
@@ -89,9 +93,6 @@ function retrieveStudentInfoById(id) {
 
                 // Grab the Student_ID from the Database
                 document.getElementById('miscNotesStudentId').value = studentJson.Student_ID;
-
-                // Grab the Misc_Text from the Database
-                //document.getElementById('miscNotes').value = studentJson.Misc_Text;
             }
         };
         // Open the xmlhttp GET Request and pass the student ID along as a variable in the URL
