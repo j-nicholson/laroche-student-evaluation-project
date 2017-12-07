@@ -5,9 +5,9 @@
 
      <form id="Student-Information-Input-Form" name="Student-Information-Input-Form" class="w3-container" action="Independent-Learning-Record-Main.php?action=submitStudentInfo" method="post" autocomplete="off" enctype="multipart/form-data">
         <p>
-            <img id="Student-Profile-Image" src="#" alt="">
+            <img id="Student-Profile-Image" src="<?php if(isset($_SESSION['studentPhoto'])){echo $_SESSION['studentPhoto'];}else{echo "";}?>" alt="">
         </p>
-        <img id="Updated-Student-Profile-Image" />
+        <img id="Updated-Student-Profile-Image"/>
         <p>
             <label>Upload Image: </label>
             <input type="file" id="picture"  name="image" accept="image/*" onchange="displayStudentProfilePicture(this)" value="">
@@ -32,19 +32,23 @@
                 <option value="Biochemistry" name="Biochemistry">Biochemistry</option>
                 <option value="OtherOption" name="OtherOption">Other</option>
             </select>
-
             <div id="Other-Text" style="padding-left:5px;"></div>
             <script>
-              var value = document.getElementById('studentMajor').value
-              console.log(value);
-              if(value !== "Chemistry" && value !== "Biochemistry"){
-                document.getElementById('studentMajor').value = "OtherOption";
+            window.onload = function(){
+              var selection = "";
+              var major = document.getElementById('studentMajor');
+              if("<?php echo $_SESSION['studentMajor'];?>" != "Chemistry" && "<?php echo $_SESSION['studentMajor'];?>" != "Biochemistry"){
+                major.value = "OtherOption";
+                selection = major.options[major.selectedIndex].value;
+                console.log("This value:");
+                console.log(selection);
                 document.getElementById('Other-Text').innerHTML = "<input id=Other class=field-style type=text placeholder=Other name=Other value=<?php echo $_SESSION['studentMajor'];?> required>";
               }
               else {
-                document.getElementById('studentMajor').value = "<?php echo $_SESSION['studentMajor'];?>";
+                major.value = "<?php echo $_SESSION['studentMajor']; ?>";
+                selection = major.options[major.selectedIndex].value;
               }
-
+            }
             </script>
             <br>
             <label style="padding-left:38px;padding-right:2px;">Year: </label>
@@ -126,7 +130,21 @@
           </select>
           <div id="otherInternationalText"></div>
         <script>
-        // CODE...
+          window.onload = function(){
+            var selection = "";
+            var international = document.getElementById('intStudent');
+            if("<?php echo $_SESSION['InternationalStudent'];?>" != "No"){
+              international.value = "Yes";
+              selection = international.options[international.selectedIndex].value;
+              console.log("This value:");
+              console.log(selection);
+              document.getElementById('otherInternationalText').innerHTML = 'If yes, your home country: <input id="OtherInternational" class="field-style" type="text" name="OtherInternational" value = "<?php echo $_SESSION["InternationalStudent"]?>"required>'
+            }
+            else {
+              international.value = "<?php echo $_SESSION['InternationalStudent']; ?>";
+              selection = international.options[international.selectedIndex].value;
+            }
+          }
         </script>
         </div>
         <p style="padding-top:10px;">

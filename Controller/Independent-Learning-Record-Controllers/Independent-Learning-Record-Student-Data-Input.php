@@ -21,6 +21,7 @@
             $_SESSION['studentName'] = $student->get_student_name();
 
             // Set the student Photo
+            $_SESSION['studentPhoto'] = "";
             if(is_uploaded_file($_FILES['image']['tmp_name'])) {
                 $basefolder = "Controller/Independent-Learning-Record-Controllers/Student-Photos/" . $student->get_student_name() . "/";
                 $studentImage = $_FILES['image']['name'];
@@ -30,6 +31,7 @@
                         $imageFileType = pathinfo($directory, PATHINFO_EXTENSION);
                         if (move_uploaded_file($_FILES["image"]["tmp_name"], $directory)) {
                             $student->set_student_photo($directory);
+                            $_SESSION['studentPhoto'] = $student->get_student_photo();
                         } else {
                             echo "Sorry, there was an error uploading your file.";
                         }
@@ -40,6 +42,7 @@
                     $imageFileType = pathinfo($directory, PATHINFO_EXTENSION);
                     if (move_uploaded_file($_FILES["image"]["tmp_name"], $directory)) {
                         $student->set_student_photo($directory);
+                        $_SESSION['studentPhoto'] = $student->get_student_photo();
                     } else {
                         echo "Sorry, there was an error uploading your file.";
                     }
@@ -220,7 +223,7 @@
 
             }
             // Insert student info to database
-            Datahandler::insert_student($_SESSION['studentId'], $_SESSION['studentName'], $_SESSION['studentMajor'], $_SESSION['studentYear'], $_SESSION['studentSemester'], $student->get_student_photo(), $student->get_student_date(), $_SESSION['studentMathPlacement'], $_SESSION['studentAthletes'], $_SESSION['studentHousing'], $_SESSION['studentHonors'], $_SESSION['InternationalStudent']);
+            Datahandler::insert_student($_SESSION['studentId'], $_SESSION['studentName'], $_SESSION['studentMajor'], $_SESSION['studentYear'], $_SESSION['studentSemester'], $_SESSION['studentPhoto'], $student->get_student_date(), $_SESSION['studentMathPlacement'], $_SESSION['studentAthletes'], $_SESSION['studentHousing'], $_SESSION['studentHonors'], $_SESSION['InternationalStudent']);
         }
       }
     }

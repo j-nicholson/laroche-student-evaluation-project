@@ -24,12 +24,13 @@ function retrieveStudentInfoById(id) {
                 document.getElementById('studentName').value = studentJson.Student_Name;
 
                 // Grab the Student_Major from the Database and check if the Other Major Option text field should appear
+                var major = document.getElementById('studentMajor');
                 if(studentJson.Student_Major !== "Chemistry" && studentJson.Student_Major !== "Biochemistry"){
-                    document.getElementById('studentMajor').value = "OtherOption";
+                    major.value = "OtherOption";
                     document.getElementById('Other-Text').innerHTML = '<input id=Other class=field-style type=text placeholder=Other name=Other value=' + studentJson.Student_Major + ' required>';
                 }
                 else{
-                    document.getElementById('studentMajor').value = studentJson.Student_Major;
+                    major.value = studentJson.Student_Major;
                 }
 
                 // Grab the Student_Year from the Database
@@ -38,10 +39,6 @@ function retrieveStudentInfoById(id) {
                 document.getElementById('studentSemester').value = studentJson.Student_Semester;
                 // Grab the Student_Date from the Database
                 document.getElementById('Date-Last-Updated').innerHTML = '<p>Last Updated: ' + studentJson.Student_Date + '</p>';
-
-                //BAD
-                // Grab the Student_Photo from the Database
-                //document.getElementById('picture').value = studentJson.Student_Photo;
 
                 // Grab the Student_Photo from the Database and check to see if the image should be displayed or not
                 let image = document.getElementById("Updated-Student-Profile-Image");
