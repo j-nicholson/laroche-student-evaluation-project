@@ -15,10 +15,10 @@
 
         <p>
             <label>ID: </label>
-            <input id="studentId" class="studentId field-style" type="text" name="studentId" onchange="retrieveStudentInfoById(this.value)" maxlength="6" required>
+            <input id="studentId" class="studentId field-style" type="text" name="studentId" onchange="retrieveStudentInfoById(this.value)" maxlength="6" value="<?php if(isset($_SESSION['studentId'])){echo $_SESSION['studentId'];} else {echo "";} ?>"required>
             <br>
             <label id="nameLabel" style="padding-left:5px;">Name: </label>
-            <input id="studentName" class="field-style field-split" type="text" name="studentName" required>
+            <input id="studentName" class="field-style field-split" type="text" name="studentName" value="<?php if(isset($_SESSION['studentName'])){echo $_SESSION['studentName'];} else {echo "";} ?>"required>
         </p>
 
 
@@ -26,17 +26,34 @@
 
         <div class="wrapper">
             <label style="padding-right:2px;">Major: </label>
-            <select class="field-style" id="studentMajor" name="major" onchange="showOtherMajorField(this.options[this.selectedIndex].value)" value="">
+
+            <select class="field-style" id="studentMajor" name="major" onchange="showOtherMajorField(this.options[this.selectedIndex].value)">
                 <option value="Chemistry" name="Chemistry">Chemistry</option>
                 <option value="Biochemistry" name="Biochemistry">Biochemistry</option>
                 <option value="OtherOption" name="OtherOption">Other</option>
             </select>
+
             <div id="Other-Text" style="padding-left:5px;"></div>
+            <script>
+              var value = document.getElementById('studentMajor').value
+              console.log(value);
+              if(value !== "Chemistry" && value !== "Biochemistry"){
+                document.getElementById('studentMajor').value = "OtherOption";
+                document.getElementById('Other-Text').innerHTML = "<input id=Other class=field-style type=text placeholder=Other name=Other value=<?php echo $_SESSION['studentMajor'];?> required>";
+              }
+              else {
+                document.getElementById('studentMajor').value = "<?php echo $_SESSION['studentMajor'];?>";
+              }
+
+            </script>
             <br>
             <label style="padding-left:38px;padding-right:2px;">Year: </label>
             <select class="field-style" id="studentYear" name="year">
             </select>
             <script src="JS/SetStudentYearOption.js"></script>
+            <script>
+              document.getElementById('studentYear').value = "<?php echo $_SESSION['studentYear']; ?>";
+            </script>
 
             <label style="padding-left:38px;padding-right:2px">Semester: </label>
             <select class="field-style" id="studentSemester" name="semester" value="">
@@ -44,6 +61,9 @@
                 <option value="Spring" name="Spring">Spring</option>
                 <option value="Summer" name="Summer">Summer</option>
             </select>
+            <script>
+              document.getElementById('studentSemester').value = "<?php echo $_SESSION['studentSemester']; ?>";
+            </script>
             <br>
             <h2 id="ILR-Title">Admissions Placement Information</h2>
 <!-- For the math results-->
@@ -62,21 +82,27 @@
             <option value = "D-" name = "D-">D-</option>
             <option value = "F" name = "F">F</option>
           </select><br>
+          <script>
+            document.getElementById('mathPlacementResult').value = "<?php echo $_SESSION['studentMathPlacement']; ?>";
+          </script>
           <br>
 
           <!--  For the athletics choices-->
           <label> Intercollegiate athletics? </label>
           <input type = "radio" name = "athletes" value = "yes" id = "yes" onclick="displayStudentAthletics(this.id)"> Yes
-          <input type = "radio" name = "athletes" value = "no" id = "no" onclick="displayStudentAthletics(this.id)"> No
+          <input type = "radio" name = "athletes" value = "no" id = "no" onclick="displayStudentAthletics(this.id)" checked=true> No
           <div id="StudentAthleticsDisplay"></div>
-          <!--<label id ="radioText" class = "textBoxAppear"> If yes, Your Sport: </label>-->
-          <!--  <input class = "textBoxAppear" type = "text" name = "showTextBox" id = "showText">-->
-          <!-- For the housing status -->
           <br>
+          <script>
+            // CODE....
+          </script>
 
           <label> Housing Status: </label>
           <input type = "radio" name = "housing" value = "resident" id = "resident"> Resident
-          <input type = "radio" name = "housing" value = "commuter" id = "commuter"> Commuter
+          <input type = "radio" name = "housing" value = "commuter" id = "commuter" checked=true> Commuter
+          <script>
+            // CODE...
+          </script>
           <br>
           <br>
 
@@ -85,7 +111,10 @@
 
           <label> Honors Institute? </label>
           <input type = "radio" name = "honors" value = "honorsYes" id = "honorYes"> Yes
-          <input type = "radio" name = "honors" value = "honorsNo" id = "honorNo"> No
+          <input type = "radio" name = "honors" value = "honorsNo" id = "honorNo" checked=true> No
+          <script>
+            // CODE...
+          </script>
           <br>
           <br>
 
@@ -96,13 +125,9 @@
   				  <option  value="Yes" name="Yes">Yes</option>
           </select>
           <div id="otherInternationalText"></div>
-
-<!--
-          <h2 id="ILR-Title">Miscellaneous Information</h2>
-          <p>
-            <textarea id="notes" class="notes" name="notes" value = "notes"></textarea>
-          </p>
--->
+        <script>
+        // CODE...
+        </script>
         </div>
         <p style="padding-top:10px;">
             <input class="field-full field-style" type="submit" name="submit" value="Update Biographical Information" onclick="submitAll()">

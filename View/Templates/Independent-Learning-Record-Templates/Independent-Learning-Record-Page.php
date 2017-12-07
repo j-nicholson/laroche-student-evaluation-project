@@ -38,6 +38,8 @@
 
         <!-- TABS -->
         <?php
+        include "Controller/Independent-Learning-Record-Controllers/Independent-Learning-Record-Student-Data-Input.php";
+        include "Controller/Independent-Learning-Record-Controllers/Independent-Learning-Record-Student-MiscNotes-Input.php";
         include "View/Templates/HTMLmodules/ILRMiscNotes.html";
         include "View/Templates/HTMLmodules/ILRStudent-Information-Form.html";
         ?>
@@ -46,7 +48,3 @@
     </body>
 
 </html>
-<?php
-    include "Controller/Independent-Learning-Record-Controllers/Independent-Learning-Record-Student-Data-Input.php";
-    include "Controller/Independent-Learning-Record-Controllers/Independent-Learning-Record-Student-MiscNotes-Input.php";
-?>
