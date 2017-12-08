@@ -40,8 +40,6 @@
               if("<?php echo $_SESSION['studentMajor'];?>" != "Chemistry" && "<?php echo $_SESSION['studentMajor'];?>" != "Biochemistry"){
                 major.value = "OtherOption";
                 selection = major.options[major.selectedIndex].value;
-                console.log("This value:");
-                console.log(selection);
                 document.getElementById('Other-Text').innerHTML = "<input id=Other class=field-style type=text placeholder=Other name=Other value=<?php echo $_SESSION['studentMajor'];?> required>";
               }
               else {
@@ -70,7 +68,8 @@
             </script>
             <br>
             <h2 id="ILR-Title">Admissions Placement Information</h2>
-<!-- For the math results-->
+
+          <!-- For the math results-->
           <label>Math Placement Testing Result: </label>
           <select class = "field-style" id = "mathPlacementResult" name = "mathPlacement">
             <option value = "A" name = "A">A</option>
@@ -94,18 +93,38 @@
           <!--  For the athletics choices-->
           <label> Intercollegiate athletics? </label>
           <input type = "radio" name = "athletes" value = "yes" id = "yes" onclick="displayStudentAthletics(this.id)"> Yes
-          <input type = "radio" name = "athletes" value = "no" id = "no" onclick="displayStudentAthletics(this.id)" checked=true> No
+          <input type = "radio" name = "athletes" value = "no" id = "no" onclick="displayStudentAthletics(this.id)"> No
           <div id="StudentAthleticsDisplay"></div>
           <br>
           <script>
-            // CODE....
+            var athleticsYes = document.getElementById('yes');
+            var athleticsNo = document.getElementById('no');
+            if("<?php echo $_SESSION['studentAthletes'];?>" != "no") {
+              athleticsYes.checked = true;
+              athleticsNo.checked = false;
+              document.getElementById('StudentAthleticsDisplay').innerHTML = 'If yes, your sport name: <input id="AthleticsDisplay" name="AthleticsDisplay" type="text" value="<?php echo $_SESSION["studentAthletes"];?>" required>';
+            }
+            else {
+              athleticsNo.checked = true;
+              athleticsYes.checked = false;
+              document.getElementById('StudentAthleticsDisplay').innerHTML = '';
+            }
           </script>
 
           <label> Housing Status: </label>
           <input type = "radio" name = "housing" value = "resident" id = "resident"> Resident
           <input type = "radio" name = "housing" value = "commuter" id = "commuter" checked=true> Commuter
           <script>
-            // CODE...
+            var resident = document.getElementById('resident');
+            var commuter = document.getElementById('commuter');
+            if("<?php echo $_SESSION['studentHousing'];?>" == "resident") {
+              resident.checked = true;
+              commuter.checked = false;
+            }
+            else if ("<?php echo $_SESSION['studentHousing'];?>" == "commuter") {
+              commuter.checked = true;
+              resident.checked = false;
+            }
           </script>
           <br>
           <br>
@@ -117,7 +136,16 @@
           <input type = "radio" name = "honors" value = "honorsYes" id = "honorYes"> Yes
           <input type = "radio" name = "honors" value = "honorsNo" id = "honorNo" checked=true> No
           <script>
-            // CODE...
+            var honorsYes = document.getElementById('honorYes');
+            var honorsNo = document.getElementById('honorNo');
+            if ("<?php echo $_SESSION['studentHonors']; ?>" == "Yes") {
+              honorsYes.checked = true;
+              honorsNo.checked = false;
+            }
+            else if ("<?php echo $_SESSION['studentHonors']; ?>" == "No") {
+              honorsNo.checked = true;
+              honorsYes.checked = false;
+            }
           </script>
           <br>
           <br>
@@ -136,9 +164,7 @@
             if("<?php echo $_SESSION['InternationalStudent'];?>" != "No"){
               international.value = "Yes";
               selection = international.options[international.selectedIndex].value;
-              console.log("This value:");
-              console.log(selection);
-              document.getElementById('otherInternationalText').innerHTML = 'If yes, your home country: <input id="OtherInternational" class="field-style" type="text" name="OtherInternational" value = "<?php echo $_SESSION["InternationalStudent"]?>"required>'
+              document.getElementById('otherInternationalText').innerHTML = 'If yes, your home country: <input id="OtherInternational" class="field-style" type="text" name="OtherInternational" value = "<?php echo $_SESSION["InternationalStudent"]?>" required>'
             }
             else {
               international.value = "<?php echo $_SESSION['InternationalStudent']; ?>";
