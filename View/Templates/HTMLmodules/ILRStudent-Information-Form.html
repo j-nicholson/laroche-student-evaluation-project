@@ -4,14 +4,23 @@
   <script src="JS/ShowCurrentDate.js"></script>
 
      <form id="Student-Information-Input-Form" name="Student-Information-Input-Form" class="w3-container" action="Independent-Learning-Record-Main.php?action=submitStudentInfo" method="post" autocomplete="off" enctype="multipart/form-data">
-        <p>
-            <img id="Student-Profile-Image" src="<?php if(isset($_SESSION['studentPhoto'])){echo $_SESSION['studentPhoto'];}else{echo "";}?>" alt="">
-        </p>
-        <img id="Updated-Student-Profile-Image"/>
+        <img id="Updated-Student-Profile-Image" src="<?php if(isset($_SESSION['studentPhoto'])){echo $_SESSION['studentPhoto'];}else{echo "";}?>" width="200" height="200"/>
         <p>
             <label>Upload Image: </label>
-            <input type="file" id="picture"  name="image" accept="image/*" onchange="displayStudentProfilePicture(this)" value="">
+            <input type="file" id="picture" name="image" accept="image/*" onchange="displayStudentProfilePicture(this)" value="">
         </p>
+        <script>
+
+          console.log("got into picture function");
+          var studentImage = document.getElementById('Student-Profile-Image');
+          var updatedStudentImage = document.getElementById('Updated-Student-Profile-Image');
+          if(updatedStudentImage.src === "<?php echo $_SESSION['studentPhoto']; ?>") {
+            console.log("got into IF picture statement");
+            studentImage.innerHTML = "";
+          }
+
+
+        </script>
 
         <p>
             <label>ID: </label>

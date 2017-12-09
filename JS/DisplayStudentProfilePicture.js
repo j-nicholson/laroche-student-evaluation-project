@@ -3,7 +3,7 @@ function displayStudentProfilePicture(input) {
         var f_reader = new FileReader();
 
         f_reader.onload = function(e){
-            $('#Student-Profile-Image')
+            $('#Updated-Student-Profile-Image')
                 .attr('src', e.target.result)
                 .width(200)
                 .height(200);
