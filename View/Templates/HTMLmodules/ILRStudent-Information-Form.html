@@ -10,15 +10,16 @@
             <input type="file" id="picture" name="image" accept="image/*" onchange="displayStudentProfilePicture(this)" value="">
         </p>
         <script>
-
-          console.log("got into picture function");
-          var studentImage = document.getElementById('Student-Profile-Image');
           var updatedStudentImage = document.getElementById('Updated-Student-Profile-Image');
-          if(updatedStudentImage.src === "<?php echo $_SESSION['studentPhoto']; ?>") {
+          if("<?php if(isset($_SESSION['studentPhoto'])){echo $_SESSION['studentPhoto'];}?>" === "") {
             console.log("got into IF picture statement");
-            studentImage.innerHTML = "";
+            updatedStudentImage.src = "http://www.cams-it.com/wp-content/uploads/2015/05/default-placeholder-200x200.png";
+            console.log("Image source:" + updatedStudentImage.src);
           }
-
+          else {
+            updatedStudentImage.src = "<?php if(isset($_SESSION['studentPhoto'])){echo $_SESSION['studentPhoto'];}else{echo "";}?>";
+            console.log("Final source: " + updatedStudentImage.src);
+          }
 
         </script>
 
@@ -43,19 +44,17 @@
             </select>
             <div id="Other-Text" style="padding-left:5px;"></div>
             <script>
-            window.onload = function(){
               var selection = "";
               var major = document.getElementById('studentMajor');
-              if("<?php echo $_SESSION['studentMajor'];?>" != "Chemistry" && "<?php echo $_SESSION['studentMajor'];?>" != "Biochemistry"){
+              if("<?php if(isset($_SESSION['studentMajor'])){echo $_SESSION['studentMajor'];}?>" != "Chemistry" && "<?php if(isset($_SESSION['studentMajor'])){echo $_SESSION['studentMajor'];}?>" != "Biochemistry"){
                 major.value = "OtherOption";
                 selection = major.options[major.selectedIndex].value;
                 document.getElementById('Other-Text').innerHTML = "<input id=Other class=field-style type=text placeholder=Other name=Other value=<?php echo $_SESSION['studentMajor'];?> required>";
               }
               else {
-                major.value = "<?php echo $_SESSION['studentMajor']; ?>";
+                major.value = "<?php if(isset($_SESSION['studentMajor'])){echo $_SESSION['studentMajor'];} ?>";
                 selection = major.options[major.selectedIndex].value;
               }
-            }
             </script>
             <br>
             <label style="padding-left:38px;padding-right:2px;">Year: </label>
@@ -63,7 +62,7 @@
             </select>
             <script src="JS/SetStudentYearOption.js"></script>
             <script>
-              document.getElementById('studentYear').value = "<?php echo $_SESSION['studentYear']; ?>";
+              document.getElementById('studentYear').value = "<?php if(isset($_SESSION['studentYear'])){echo $_SESSION['studentYear'];}else{echo "";} ?>";
             </script>
 
             <label style="padding-left:38px;padding-right:2px">Semester: </label>
@@ -73,7 +72,7 @@
                 <option value="Summer" name="Summer">Summer</option>
             </select>
             <script>
-              document.getElementById('studentSemester').value = "<?php echo $_SESSION['studentSemester']; ?>";
+              document.getElementById('studentSemester').value = "<?php if(isset($_SESSION['studentSemester'])){echo $_SESSION['studentSemester'];}else{echo "";} ?>";
             </script>
             <br>
             <h2 id="ILR-Title">Admissions Placement Information</h2>
@@ -95,7 +94,7 @@
             <option value = "F" name = "F">F</option>
           </select><br>
           <script>
-            document.getElementById('mathPlacementResult').value = "<?php echo $_SESSION['studentMathPlacement']; ?>";
+            document.getElementById('mathPlacementResult').value = "<?php if(isset($_SESSION['studentMathPlacement'])){echo $_SESSION['studentMathPlacement'];} ?>";
           </script>
           <br>
 
@@ -108,7 +107,7 @@
           <script>
             var athleticsYes = document.getElementById('yes');
             var athleticsNo = document.getElementById('no');
-            if("<?php echo $_SESSION['studentAthletes'];?>" != "no") {
+            if("<?php if(isset($_SESSION['studentAthletes'])){echo $_SESSION['studentAthletes'];}?>" != "no") {
               athleticsYes.checked = true;
               athleticsNo.checked = false;
               document.getElementById('StudentAthleticsDisplay').innerHTML = 'If yes, your sport name: <input id="AthleticsDisplay" name="AthleticsDisplay" type="text" value="<?php echo $_SESSION["studentAthletes"];?>" required>';
@@ -126,11 +125,11 @@
           <script>
             var resident = document.getElementById('resident');
             var commuter = document.getElementById('commuter');
-            if("<?php echo $_SESSION['studentHousing'];?>" == "resident") {
+            if("<?php if(isset($_SESSION['studentHousing'])){echo $_SESSION['studentHousing'];}?>" == "resident") {
               resident.checked = true;
               commuter.checked = false;
             }
-            else if ("<?php echo $_SESSION['studentHousing'];?>" == "commuter") {
+            else if ("<?php if(isset($_SESSION['studentHousing'])){echo $_SESSION['studentHousing'];}?>" == "commuter") {
               commuter.checked = true;
               resident.checked = false;
             }
@@ -147,11 +146,11 @@
           <script>
             var honorsYes = document.getElementById('honorYes');
             var honorsNo = document.getElementById('honorNo');
-            if ("<?php echo $_SESSION['studentHonors']; ?>" == "Yes") {
+            if ("<?php if(isset($_SESSION['studentHonors'])){echo $_SESSION['studentHonors'];} ?>" == "Yes") {
               honorsYes.checked = true;
               honorsNo.checked = false;
             }
-            else if ("<?php echo $_SESSION['studentHonors']; ?>" == "No") {
+            else if ("<?php if(isset($_SESSION['studentHonors'])){echo $_SESSION['studentHonors'];} ?>" == "No") {
               honorsNo.checked = true;
               honorsYes.checked = false;
             }
@@ -167,19 +166,17 @@
           </select>
           <div id="otherInternationalText"></div>
         <script>
-          window.onload = function(){
             var selection = "";
             var international = document.getElementById('intStudent');
-            if("<?php echo $_SESSION['InternationalStudent'];?>" != "No"){
+            if("<?php if(isset($_SESSION['InternationalStudent'])){echo $_SESSION['InternationalStudent'];}?>" != "No"){
               international.value = "Yes";
               selection = international.options[international.selectedIndex].value;
               document.getElementById('otherInternationalText').innerHTML = 'If yes, your home country: <input id="OtherInternational" class="field-style" type="text" name="OtherInternational" value = "<?php echo $_SESSION["InternationalStudent"]?>" required>'
             }
             else {
-              international.value = "<?php echo $_SESSION['InternationalStudent']; ?>";
+              international.value = "<?php if(isset($_SESSION['InternationalStudent'])){echo $_SESSION['InternationalStudent'];} ?>";
               selection = international.options[international.selectedIndex].value;
             }
-          }
         </script>
         </div>
         <p style="padding-top:10px;">
