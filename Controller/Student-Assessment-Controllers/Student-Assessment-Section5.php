@@ -5,6 +5,9 @@
 
     <form action="Student-Assessment-Main.php" method="post">
     <fieldset>
+<?php
+include "Student-Assessment-Learning-Issues.php";
+?>
     <legend>Course Assessment Form Section V</legend>
          <br>
         <div style="text-align:center">Summative Student Performace and Evaluation: </div><br>
@@ -59,17 +62,6 @@
 			</tr>
                 </table>
 			<br>
-<label id="LI Key"><strong>* Learning Issues:</strong>
-    1. Course pace
-    2. Poor background
-    3. Mindset
-    4. Interest/curiosity
-    5. Effort/focus
-    6. Time management
-    7. Health issues
-    8. Complacence
-    9. Employment hours
-    10. Other
-    </label>
+
 
     </fieldset>

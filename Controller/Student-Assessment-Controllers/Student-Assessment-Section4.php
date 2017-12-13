@@ -5,6 +5,9 @@
         
     <form action="Student-Assessment-Main.php" method="post">
     <fieldset>
+<?php
+include "Student-Assessment-Learning-Issues.php";
+?>
     <legend>Course Assessment Form Section IV</legend>
          <br>  
         <div style="text-align:center">Log of Mid-Semster Individual Student Performace and Evaluation: </div><br>

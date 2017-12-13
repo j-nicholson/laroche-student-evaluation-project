@@ -1,5 +1,6 @@
-<div style="text-align:center">*Learning Issues: </div>
-        <table align = "center"  border = "1">
+<div style="text-align:left">*Learning Issues: </div>
+        <table align = "left"  border = "1">
+	<table style = "float: left">
             <tr>
                 <td>1. Course Pace</td>
             </tr>

@@ -25,7 +25,6 @@
 	include "Student-Assessment-Section3.php";
 	include "Student-Assessment-Section4.php";
 	include "Student-Assessment-Section5.php";
-	include "Student-Assessment-Learning-Issues.php";
         include "Student-Assessment-Review-Section.php";
 	include "Student-Assessment-Update-Button.php";
     }
