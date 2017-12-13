@@ -30,7 +30,8 @@ function retrieveStudentInfoById(id) {
                     document.getElementById('Other-Text').innerHTML = '<input id=Other class=field-style type=text placeholder=Other name=Other value=' + studentJson.Student_Major + ' required>';
                 }
                 else{
-                    major.value = studentJson.Student_Major;
+                  document.getElementById('Other-Text').innerHTML ="";
+                  major.value = studentJson.Student_Major;
                 }
 
                 // Grab the Student_Year from the Database
@@ -44,7 +45,7 @@ function retrieveStudentInfoById(id) {
                 let image = document.getElementById("Updated-Student-Profile-Image");
                 let imgurl = studentJson.Student_Photo;
                 if(imgurl === "") {
-                    image.innerHTML = "";
+                    image.innerHTML = "http://www.cams-it.com/wp-content/uploads/2015/05/default-placeholder-200x200.png";
                 } else {
                     image.src = imgurl;
                     image.height ="200";
@@ -57,6 +58,7 @@ function retrieveStudentInfoById(id) {
                 // Grab the Student_Athletics from the Database
                 if(studentJson.Student_Athletics === "no") {
                   document.getElementById('no').checked = true;
+                  document.getElementById('StudentAthleticsDisplay').innerHTML ="";
                 }
                 else {
                   document.getElementById('yes').checked = true;
@@ -82,6 +84,7 @@ function retrieveStudentInfoById(id) {
                 // Grab the International_Student from the Database
                 if (studentJson.International_Student === "No") {
                   document.getElementById('intStudent').value = "No";
+                  document.getElementById('otherInternationalText').innerHTML ="";
                 }
                 else {
                   document.getElementById('intStudent').value = "Yes";
